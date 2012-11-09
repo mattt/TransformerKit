@@ -3,7 +3,7 @@ TransformerKit
 
 **Transforming Ordinary Code into Awesomesauce**
 
-`NSValueTransformer`, while somewhat obscure to most iOS programmers, is a mainstay of OS X development. Before Objective-C APIs had the ability to fling hither and thither with reckless abandon, `NSValueTransformer` was the go-to way to encapsulate mutation functionality--especially when it came to Bindings.
+`NSValueTransformer`, while somewhat obscure to most iOS programmers, remains a mainstay of OS X development. Before Objective-C APIs flung block parameters hither and thither with reckless abandon, `NSValueTransformer` was the go-to way to encapsulate mutation functionality--especially when it came to Bindings.
 
 Back in those early days, `NSValueTransformer` was convenient to use, but a pain to set up. Creating even a trivial value transformer required creating of its own subclass, implementing the handful of required methods, and registering a singleton instance by name.
 
