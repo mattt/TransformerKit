@@ -57,6 +57,21 @@ extern NSString * const TKSnakeCaseStringTransformerName;
  */
 extern NSString * const TKTrainCaseStringTransformerName;
 
+/**
+ 
+ */
+extern NSString * const TKReverseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TKRemoveDiacriticStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TKTransliterateStringToLatinTransformerName;
+
 @interface TKStringTransformers : NSObject
 
 @end

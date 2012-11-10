@@ -31,6 +31,9 @@ NSString * const TKCamelCaseStringTransformerName = @"TKCamelCaseStringTransform
 NSString * const TKLlamaCaseStringTransformerName = @"TKLlamaCaseStringTransformer";
 NSString * const TKSnakeCaseStringTransformerName = @"TKSnakeCaseStringTransformer";
 NSString * const TKTrainCaseStringTransformerName = @"TKTrainCaseStringTransformer";
+NSString * const TKReverseStringTransformerName = @"TKReverseStringTransformer";
+NSString * const TKRemoveDiacriticStringTransformerName = @"TKRemoveDiacriticStringTransformer";
+NSString * const TKTransliterateStringToLatinTransformerName = @"TKTransliterateStringToLatinTransformer";
 
 static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string) {
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -94,6 +97,30 @@ static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string)
         }];
         
         return [mutableComponents componentsJoinedByString:@"-"];
+    }];
+    
+    [NSValueTransformer registerValueTransformerWithName:TKReverseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[value length]];
+        [value enumerateSubstringsInRange:NSMakeRange(0, [value length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+            [reversedString appendString:substring];
+        }];
+        
+        return reversedString;
+    }];
+    
+    [NSValueTransformer registerValueTransformerWithName:TKRemoveDiacriticStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSMutableString *mutableString = [value mutableCopy];
+        CFStringTransform((__bridge CFMutableStringRef)(mutableString), NULL, kCFStringTransformStripCombiningMarks, NO);
+        
+        return mutableString;
+    }];
+    
+    [NSValueTransformer registerValueTransformerWithName:TKTransliterateStringToLatinTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSMutableString *mutableString = [value mutableCopy];
+        CFStringTransform((__bridge CFMutableStringRef)(mutableString), NULL, kCFStringTransformToLatin, NO);
+        CFStringTransform((__bridge CFMutableStringRef)(mutableString), NULL, kCFStringTransformStripCombiningMarks, NO);
+        
+        return mutableString;
     }];
 }
 

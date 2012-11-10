@@ -30,6 +30,9 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 - llamaCase
 - snake_case
 - train-case
+- desreveR _(Reverse)_
+- Rémövê Dîaçritics _(Remove accents and combining marks)
+- ट्रांस्लितेराते स्ट्रिंग _(Transliterate to Latin)_
 
 ## Contact
 
