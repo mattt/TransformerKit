@@ -44,6 +44,15 @@ static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string)
     return components;
 }
 
+static NSString * TKReversedStringWithString(NSString *string) {
+    __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[string length]];
+    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+        [reversedString appendString:substring];
+    }];
+    
+    return reversedString;
+}
+
 @implementation TKStringTransformers
 
 + (void)load {
@@ -100,12 +109,9 @@ static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string)
     }];
     
     [NSValueTransformer registerValueTransformerWithName:TKReverseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-        __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[value length]];
-        [value enumerateSubstringsInRange:NSMakeRange(0, [value length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-            [reversedString appendString:substring];
-        }];
-        
-        return reversedString;
+        return TKReversedStringWithString(value);
+    } allowingReverseTransformationWithBlock:^id(id value) {
+        return TKReversedStringWithString(value);
     }];
     
     [NSValueTransformer registerValueTransformerWithName:TKRemoveDiacriticStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
