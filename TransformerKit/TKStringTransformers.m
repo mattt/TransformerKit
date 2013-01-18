@@ -29,6 +29,7 @@ NSString * const TKUppercaseStringTransformerName = @"TKUppercaseStringTransform
 NSString * const TKLowercaseStringTransformerName = @"TKLowercaseStringTransformer";
 NSString * const TKCamelCaseStringTransformerName = @"TKCamelCaseStringTransformer";
 NSString * const TKLlamaCaseStringTransformerName = @"TKLlamaCaseStringTransformer";
+NSString * const TKObjectiveCaseStringTransformerName = @"TKObjectiveCaseStringTransformer";
 NSString * const TKSnakeCaseStringTransformerName = @"TKSnakeCaseStringTransformer";
 NSString * const TKTrainCaseStringTransformerName = @"TKTrainCaseStringTransformer";
 NSString * const TKReverseStringTransformerName = @"TKReverseStringTransformer";
@@ -39,6 +40,17 @@ static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string)
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    
+    return components;
+}
+
+static NSArray * TKComponentsBySplittingOnWhitespaceAndUnderscoreWithString(NSString *string) {
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSMutableCharacterSet *characterSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"_"];
+    [characterSet formUnionWithCharacterSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSArray *components = [string componentsSeparatedByCharactersInSet:characterSet];
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     
     return components;
@@ -79,10 +91,24 @@ static NSString * TKReversedStringWithString(NSString *string) {
     }];
     
     [NSValueTransformer registerValueTransformerWithName:TKLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-        NSArray *components = TKComponentsBySplittingOnWhitespaceWithString(value);
+        NSArray *components = TKComponentsBySplittingOnWhitespaceAndUnderscoreWithString(value);
         NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
         [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
             [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
+        }];
+        
+        return [mutableComponents componentsJoinedByString:@""];
+    }];
+    
+    [NSValueTransformer registerValueTransformerWithName:TKObjectiveCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSArray *components = TKComponentsBySplittingOnWhitespaceAndUnderscoreWithString(value);
+        NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
+        [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            if ([component caseInsensitiveCompare:@"url"] == NSOrderedSame || [component caseInsensitiveCompare:@"html"] == NSOrderedSame) {
+                [mutableComponents addObject:[component uppercaseString]];
+            } else {
+                [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
+            }
         }];
         
         return [mutableComponents componentsJoinedByString:@""];
