@@ -23,13 +23,18 @@
 #import "TKStringTransformers.h"
 
 #import "NSValueTransformer+TransformerKit.h"
+#import "NSString+TransformFirstLetter.h"
 
 NSString * const TKCapitalizedStringTransformerName = @"TKCapitalizedStringTransformerName";
 NSString * const TKUppercaseStringTransformerName = @"TKUppercaseStringTransformer";
 NSString * const TKLowercaseStringTransformerName = @"TKLowercaseStringTransformer";
 NSString * const TKCamelCaseStringTransformerName = @"TKCamelCaseStringTransformer";
+NSString * const TKCamelCaseToWhitespaceStringTransformerName = @"TKCamelCaseToWhitespaceStringTransformerName";
+NSString * const TKCamelCaseToSnakeCaseStringTransformerName = @"TKCamelCaseToSnakeCaseStringTransformerName";
 NSString * const TKLlamaCaseStringTransformerName = @"TKLlamaCaseStringTransformer";
 NSString * const TKSnakeCaseStringTransformerName = @"TKSnakeCaseStringTransformer";
+NSString * const TKSnakeCaseToCamelCaseStringTransformerName = @"TKSnakeCaseToCamelCaseStringTransformerName";
+NSString * const TKSnakeCaseToLlamaCaseStringTransformerName = @"TKSnakeCaseToLlamaCaseStringTransformerName";
 NSString * const TKTrainCaseStringTransformerName = @"TKTrainCaseStringTransformer";
 NSString * const TKReverseStringTransformerName = @"TKReverseStringTransformer";
 NSString * const TKRemoveDiacriticStringTransformerName = @"TKRemoveDiacriticStringTransformer";
@@ -40,6 +45,33 @@ static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string)
     
     NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    
+    return components;
+}
+
+static NSArray * TKComponentsBySplittingOnUppercaseWithString(NSString *string) {
+    const NSCharacterSet* uppercaseLetterCharacterSet = NSCharacterSet.uppercaseLetterCharacterSet;
+    
+    NSMutableArray* components = [NSMutableArray new];
+    NSMutableString* component = [NSMutableString new];
+    BOOL lastCharWasUppercase = NO;
+    
+    for (int i=0; i<string.length; i++) {
+        unichar character = [string characterAtIndex:i];
+        NSString* charString = [NSString stringWithCharacters:&character length:1];
+        if (![uppercaseLetterCharacterSet characterIsMember:character]) {
+            lastCharWasUppercase = NO;
+        } else if (!lastCharWasUppercase) {
+            lastCharWasUppercase = YES;
+            if (component.length > 0) {
+                [components addObject:component];
+            }
+            component = [NSMutableString new];
+            charString = charString.lowercaseString;
+        }
+        [component appendString:charString];
+    }
+    [components addObject:component];
     
     return components;
 }
@@ -78,6 +110,21 @@ static NSString * TKReversedStringWithString(NSString *string) {
         return [mutableComponents componentsJoinedByString:@""];
     }];
     
+    [NSValueTransformer registerValueTransformerWithName:TKCamelCaseToWhitespaceStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSArray *components = TKComponentsBySplittingOnUppercaseWithString(value);
+        return [components componentsJoinedByString:@" "];
+    }];
+    
+    [NSValueTransformer registerValueTransformerWithName:TKCamelCaseToSnakeCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSArray *components = TKComponentsBySplittingOnUppercaseWithString(value);
+        NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
+        [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [mutableComponents addObject:[component lowercaseString]];
+        }];
+        
+        return [mutableComponents componentsJoinedByString:@"_"];
+    }];
+    
     [NSValueTransformer registerValueTransformerWithName:TKLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
         NSArray *components = TKComponentsBySplittingOnWhitespaceWithString(value);
         NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
@@ -96,6 +143,27 @@ static NSString * TKReversedStringWithString(NSString *string) {
         }];
         
         return [mutableComponents componentsJoinedByString:@"_"];
+    }];
+    
+    [NSValueTransformer registerValueTransformerWithName:TKSnakeCaseToCamelCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSArray *components = [value componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"_"]];
+        NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
+        [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [mutableComponents addObject:[component uppercaseFirstLetterString]];
+        }];
+        
+        return [mutableComponents componentsJoinedByString:@""];
+    }];
+    
+    
+    [NSValueTransformer registerValueTransformerWithName:TKSnakeCaseToLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        NSArray *components = [value componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"_"]];
+        NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
+        [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [mutableComponents addObject:(idx == 0 ? [component lowercaseFirstLetterString] : [component uppercaseFirstLetterString])];
+        }];
+        
+        return [mutableComponents componentsJoinedByString:@""];
     }];
     
     [NSValueTransformer registerValueTransformerWithName:TKTrainCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {

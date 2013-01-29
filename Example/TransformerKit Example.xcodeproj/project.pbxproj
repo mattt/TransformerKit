@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717941C316B7483C00C4F73B /* NSString+TransformFirstLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 717941C216B7483B00C4F73B /* NSString+TransformFirstLetter.m */; };
 		F818950F164DBA9900D19548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F818950E164DBA9900D19548 /* main.m */; };
 		F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
 		F8189520164DBB0600D19548 /* TKStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TKStringTransformers.m */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		717941C116B7483900C4F73B /* NSString+TransformFirstLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TransformFirstLetter.h"; sourceTree = "<group>"; };
+		717941C216B7483B00C4F73B /* NSString+TransformFirstLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TransformFirstLetter.m"; sourceTree = "<group>"; };
 		F818950D164DBA9300D19548 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
 		F818950E164DBA9900D19548 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+TransformerKit.h"; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				F818951D164DBB0600D19548 /* TKStringTransformers.m */,
 				F8E5DBC8165578FB002C26DC /* TKImageTransformers.h */,
 				F8E5DBC9165578FB002C26DC /* TKImageTransformers.m */,
+				717941C116B7483900C4F73B /* NSString+TransformFirstLetter.h */,
+				717941C216B7483B00C4F73B /* NSString+TransformFirstLetter.m */,
 				F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */,
 				F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */,
 			);
@@ -173,6 +178,7 @@
 				F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */,
 				F8189520164DBB0600D19548 /* TKStringTransformers.m in Sources */,
 				F8E5DBCA165578FB002C26DC /* TKImageTransformers.m in Sources */,
+				717941C316B7483C00C4F73B /* NSString+TransformFirstLetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
