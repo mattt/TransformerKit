@@ -45,12 +45,32 @@ extern NSString * const TKCamelCaseStringTransformerName;
 /**
  
  */
+extern NSString * const TKCamelCaseToWhitespaceStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TKCamelCaseToSnakeCaseStringTransformerName;
+
+/**
+ 
+ */
 extern NSString * const TKLlamaCaseStringTransformerName;
 
 /**
  
  */
 extern NSString * const TKSnakeCaseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TKSnakeCaseToCamelCaseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TKSnakeCaseToLlamaCaseStringTransformerName;
 
 /**
  
