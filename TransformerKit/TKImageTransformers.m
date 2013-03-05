@@ -81,7 +81,7 @@ static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapIma
         return [[imageClass alloc] initWithData:value];
     }];
     
-    [NSValueTransformer registerValueTransformerWithName:TKTIFFRepresentationImageTransformer transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
+    [NSValueTransformer registerValueTransformerWithName:TKTIFFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
         return NSImageRepresentationWithType(value, NSTIFFFileType, nil);
     } allowingReverseTransformationWithBlock:^id(id value) {
         return [[imageClass alloc] initWithData:value];
