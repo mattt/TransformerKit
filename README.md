@@ -19,6 +19,10 @@ NSString * const TKCapitalizedStringTransformerName = @"TKCapitalizedStringTrans
 }];
 ```
 
+> TransformerKit pairs nicely with [InflectorKit](https://github.com/mattt/InflectorKit) & [FormatterKit](https://github.com/mattt/FormatterKit), providing well-designed APIs for manipulating user-facing content.
+
+---
+
 TransformerKit also contains a _growing_ number of convenient transformers that your apps will love and cherish:
 
 ### String Transformers
