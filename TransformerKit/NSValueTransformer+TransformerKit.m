@@ -74,7 +74,7 @@
         IMP allowsReverseTransformationImplementation = imp_implementationWithBlock([^BOOL (id _self) {
             return YES;
         } copy]);
-        Method allowsReverseTransformationMethod = class_getInstanceMethod(class, allowsReverseTransformationSelector);
+        Method allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
         class_replaceMethod(class, allowsReverseTransformationSelector, allowsReverseTransformationImplementation, method_getTypeEncoding(allowsReverseTransformationMethod));
         
         SEL reverseTransformedValueSelector = @selector(reverseTransformedValue:);
