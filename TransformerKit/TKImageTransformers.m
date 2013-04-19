@@ -48,45 +48,47 @@ static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapIma
 @implementation TKImageTransformers
 
 + (void)load {
+    @autoreleasepool {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
-    Class imageClass = [UIImage class];
+        Class imageClass = [UIImage class];
 #elif __MAC_OS_X_VERSION_MIN_REQUIRED
-    Class imageClass = [NSImage class];
+        Class imageClass = [NSImage class];
 #endif
-    
-    [NSValueTransformer registerValueTransformerWithName:TKPNGRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
+
+        [NSValueTransformer registerValueTransformerWithName:TKPNGRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
-        return UIImagePNGRepresentation(value);
+            return UIImagePNGRepresentation(value);
 #elif __MAC_OS_X_VERSION_MIN_REQUIRED
-        return NSImageRepresentationWithType(value, NSPNGFileType, nil);
+            return NSImageRepresentationWithType(value, NSPNGFileType, nil);
 #endif
-    } allowingReverseTransformationWithBlock:^id(id value) {
-        return [[imageClass alloc] initWithData:value];
-    }];
-    
-    [NSValueTransformer registerValueTransformerWithName:TKJPEGRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            return [[imageClass alloc] initWithData:value];
+        }];
+
+        [NSValueTransformer registerValueTransformerWithName:TKJPEGRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
-        return UIImageJPEGRepresentation(value, kTKJPEGRepresentationCompressionQuality);
+            return UIImageJPEGRepresentation(value, kTKJPEGRepresentationCompressionQuality);
 #elif __MAC_OS_X_VERSION_MIN_REQUIRED
-        return NSImageRepresentationWithType(value, NSPNGFileType, [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:kTKJPEGRepresentationCompressionQuality] forKey:NSImageCompressionFactor]);
+            return NSImageRepresentationWithType(value, NSPNGFileType, [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:kTKJPEGRepresentationCompressionQuality] forKey:NSImageCompressionFactor]);
 #endif
-    } allowingReverseTransformationWithBlock:^id(id value) {
-        return [[imageClass alloc] initWithData:value];
-    }];
-    
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            return [[imageClass alloc] initWithData:value];
+        }];
+
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
-    [NSValueTransformer registerValueTransformerWithName:TKGIFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
-        return NSImageRepresentationWithType(value, NSGIFFileType, nil);
-    } allowingReverseTransformationWithBlock:^id(id value) {
-        return [[imageClass alloc] initWithData:value];
-    }];
-    
-    [NSValueTransformer registerValueTransformerWithName:TKTIFFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
-        return NSImageRepresentationWithType(value, NSTIFFFileType, nil);
-    } allowingReverseTransformationWithBlock:^id(id value) {
-        return [[imageClass alloc] initWithData:value];
-    }];
+        [NSValueTransformer registerValueTransformerWithName:TKGIFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
+            return NSImageRepresentationWithType(value, NSGIFFileType, nil);
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            return [[imageClass alloc] initWithData:value];
+        }];
+
+        [NSValueTransformer registerValueTransformerWithName:TKTIFFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
+            return NSImageRepresentationWithType(value, NSTIFFFileType, nil);
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            return [[imageClass alloc] initWithData:value];
+        }];
 #endif
+    }
 }
 
 @end
