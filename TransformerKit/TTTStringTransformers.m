@@ -1,4 +1,4 @@
-// TKStringTransformers.m
+// TTTStringTransformers.m
 //
 // Copyright (c) 2012 Mattt Thompson (http://mattt.me)
 //
@@ -20,22 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TKStringTransformers.h"
+#import "TTTStringTransformers.h"
 
 #import "NSValueTransformer+TransformerKit.h"
 
-NSString * const TKCapitalizedStringTransformerName = @"TKCapitalizedStringTransformerName";
-NSString * const TKUppercaseStringTransformerName = @"TKUppercaseStringTransformer";
-NSString * const TKLowercaseStringTransformerName = @"TKLowercaseStringTransformer";
-NSString * const TKCamelCaseStringTransformerName = @"TKCamelCaseStringTransformer";
-NSString * const TKLlamaCaseStringTransformerName = @"TKLlamaCaseStringTransformer";
-NSString * const TKSnakeCaseStringTransformerName = @"TKSnakeCaseStringTransformer";
-NSString * const TKTrainCaseStringTransformerName = @"TKTrainCaseStringTransformer";
-NSString * const TKReverseStringTransformerName = @"TKReverseStringTransformer";
-NSString * const TKRemoveDiacriticStringTransformerName = @"TKRemoveDiacriticStringTransformer";
-NSString * const TKTransliterateStringToLatinTransformerName = @"TKTransliterateStringToLatinTransformer";
+NSString * const TTTCapitalizedStringTransformerName = @"TTTCapitalizedStringTransformerName";
+NSString * const TTTUppercaseStringTransformerName = @"TTTUppercaseStringTransformer";
+NSString * const TTTLowercaseStringTransformerName = @"TTTLowercaseStringTransformer";
+NSString * const TTTCamelCaseStringTransformerName = @"TTTCamelCaseStringTransformer";
+NSString * const TTTLlamaCaseStringTransformerName = @"TTTLlamaCaseStringTransformer";
+NSString * const TTTSnakeCaseStringTransformerName = @"TTTSnakeCaseStringTransformer";
+NSString * const TTTTrainCaseStringTransformerName = @"TTTTrainCaseStringTransformer";
+NSString * const TTTReverseStringTransformerName = @"TTTReverseStringTransformer";
+NSString * const TTTRemoveDiacriticStringTransformerName = @"TTTRemoveDiacriticStringTransformer";
+NSString * const TTTTransliterateStringToLatinTransformerName = @"TTTTransliterateStringToLatinTransformer";
 
-static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string) {
+static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string) {
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -44,7 +44,7 @@ static NSArray * TKComponentsBySplittingOnWhitespaceWithString(NSString *string)
     return components;
 }
 
-static NSString * TKReversedStringWithString(NSString *string) {
+static NSString * TTTReversedStringWithString(NSString *string) {
     __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[string length]];
     [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         [reversedString appendString:substring];
@@ -53,24 +53,24 @@ static NSString * TKReversedStringWithString(NSString *string) {
     return reversedString;
 }
 
-@implementation TKStringTransformers
+@implementation TTTStringTransformers
 
 + (void)load {
     @autoreleasepool {
-        [NSValueTransformer registerValueTransformerWithName:TKCapitalizedStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTCapitalizedStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             return [value capitalizedString];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKUppercaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTUppercaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             return [value uppercaseString];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKLowercaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTLowercaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             return [value lowercaseString];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKCamelCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-            NSArray *components = TKComponentsBySplittingOnWhitespaceWithString(value);
+        [NSValueTransformer registerValueTransformerWithName:TTTCamelCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
                 [mutableComponents addObject:[component capitalizedString]];
@@ -79,8 +79,8 @@ static NSString * TKReversedStringWithString(NSString *string) {
             return [mutableComponents componentsJoinedByString:@""];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-            NSArray *components = TKComponentsBySplittingOnWhitespaceWithString(value);
+        [NSValueTransformer registerValueTransformerWithName:TTTLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
                 [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
@@ -89,8 +89,8 @@ static NSString * TKReversedStringWithString(NSString *string) {
             return [mutableComponents componentsJoinedByString:@""];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKSnakeCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-            NSArray *components = TKComponentsBySplittingOnWhitespaceWithString(value);
+        [NSValueTransformer registerValueTransformerWithName:TTTSnakeCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
                 [mutableComponents addObject:[component lowercaseString]];
@@ -99,8 +99,8 @@ static NSString * TKReversedStringWithString(NSString *string) {
             return [mutableComponents componentsJoinedByString:@"_"];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKTrainCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-            NSArray *components = TKComponentsBySplittingOnWhitespaceWithString(value);
+        [NSValueTransformer registerValueTransformerWithName:TTTTrainCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
                 [mutableComponents addObject:[component lowercaseString]];
@@ -109,20 +109,20 @@ static NSString * TKReversedStringWithString(NSString *string) {
             return [mutableComponents componentsJoinedByString:@"-"];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKReverseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
-            return TKReversedStringWithString(value);
+        [NSValueTransformer registerValueTransformerWithName:TTTReverseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            return TTTReversedStringWithString(value);
         } allowingReverseTransformationWithBlock:^id(id value) {
-            return TKReversedStringWithString(value);
+            return TTTReversedStringWithString(value);
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKRemoveDiacriticStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTRemoveDiacriticStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             NSMutableString *mutableString = [value mutableCopy];
             CFStringTransform((__bridge CFMutableStringRef)(mutableString), NULL, kCFStringTransformStripCombiningMarks, NO);
 
             return mutableString;
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TKTransliterateStringToLatinTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTTransliterateStringToLatinTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             NSMutableString *mutableString = [value mutableCopy];
             CFStringTransform((__bridge CFMutableStringRef)(mutableString), NULL, kCFStringTransformToLatin, NO);
             CFStringTransform((__bridge CFMutableStringRef)(mutableString), NULL, kCFStringTransformStripCombiningMarks, NO);

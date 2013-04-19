@@ -13,16 +13,16 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         [@{
-         @"Capitalized String" : TKCapitalizedStringTransformerName,
-         @"Uppercase String" : TKUppercaseStringTransformerName,
-         @"Lowercase String" : TKLowercaseStringTransformerName,
-         @"Camel Case String" : TKCamelCaseStringTransformerName,
-         @"Llama Case String" : TKLlamaCaseStringTransformerName,
-         @"Snake Case String" : TKSnakeCaseStringTransformerName,
-         @"Train Case String" : TKTrainCaseStringTransformerName,
-         @"Reversed String" : TKReverseStringTransformerName,
-         @"Rémövê Dîaçritics" : TKRemoveDiacriticStringTransformerName,
-         @"ट्रांस्लितेराते स्ट्रिंग" : TKTransliterateStringToLatinTransformerName,
+         @"Capitalized String" : TTTCapitalizedStringTransformerName,
+         @"Uppercase String" : TTTUppercaseStringTransformerName,
+         @"Lowercase String" : TTTLowercaseStringTransformerName,
+         @"Camel Case String" : TTTCamelCaseStringTransformerName,
+         @"Llama Case String" : TTTLlamaCaseStringTransformerName,
+         @"Snake Case String" : TTTSnakeCaseStringTransformerName,
+         @"Train Case String" : TTTTrainCaseStringTransformerName,
+         @"Reversed String" : TTTReverseStringTransformerName,
+         @"Rémövê Dîaçritics" : TTTRemoveDiacriticStringTransformerName,
+         @"ट्रांस्लितेराते स्ट्रिंग" : TTTTransliterateStringToLatinTransformerName,
         } enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSLog(@"%@: %@", key, [[NSValueTransformer valueTransformerForName:obj] transformedValue:key]);
         }];

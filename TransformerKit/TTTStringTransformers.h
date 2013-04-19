@@ -1,4 +1,4 @@
-// TKImageTransformers.h
+// TTTStringTransformers.h
 //
 // Copyright (c) 2012 Mattt Thompson (http://mattt.me)
 //
@@ -22,34 +22,56 @@
 
 #import <Foundation/Foundation.h>
 
-#if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
-
-#define kTKJPEGRepresentationCompressionQuality 0.75
+/**
+ 
+ */
+extern NSString * const TTTCapitalizedStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKPNGRepresentationImageTransformerName;
+extern NSString * const TTTUppercaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKJPEGRepresentationImageTransformerName;
-
-#if __MAC_OS_X_VERSION_MIN_REQUIRED
-/**
- 
- */
-extern NSString * const TKGIFRepresentationImageTransformerName;
+extern NSString * const TTTLowercaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKTIFFRepresentationImageTransformerName;
-#endif
+extern NSString * const TTTCamelCaseStringTransformerName;
 
-@interface TKImageTransformers : NSObject
+/**
+ 
+ */
+extern NSString * const TTTLlamaCaseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TTTSnakeCaseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TTTTrainCaseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TTTReverseStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TTTRemoveDiacriticStringTransformerName;
+
+/**
+ 
+ */
+extern NSString * const TTTTransliterateStringToLatinTransformerName;
+
+@interface TTTStringTransformers : NSObject
 
 @end
-
-#endif

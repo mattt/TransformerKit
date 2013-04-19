@@ -23,5 +23,5 @@
 #ifndef _TRANSFORMER_KIT_
     #define _TRANSFORMER_KIT_
 
-    #import "TKStringTransformers.h"
+    #import "TTTStringTransformers.h"
 #endif

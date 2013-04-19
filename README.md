@@ -10,10 +10,10 @@ TransformerKit
 TransformerKit breathes new life into `NSValueTransformer`, by making them dead-simple to define and register:
 
 ```objective-c
-NSString * const TKCapitalizedStringTransformerName = @"TKCapitalizedStringTransformerName";
+NSString * const TTTCapitalizedStringTransformerName = @"TTTCapitalizedStringTransformerName";
 
-[NSValueTransformer registerValueTransformerWithName:TKCapitalizedStringTransformerName 
-                               transformedValueClass:[NSString class] 
+[NSValueTransformer registerValueTransformerWithName:TTTCapitalizedStringTransformerName
+                               transformedValueClass:[NSString class]
                   returningTransformedValueWithBlock:^id(id value) {
   return [value capitalizedString];
 }];
