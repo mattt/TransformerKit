@@ -22,10 +22,10 @@ NSString * const TTTStandardFormat = @"MM-dd-YYYY";
 
     NSMutableDictionary *formatterCache = [NSMutableDictionary new];
 
-    objc_setAssociatedObject(self, &TTTDateFormatterDictionarCacheKey, formatterCache, OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self, &TTTDateFormatterDictionarCacheKey, formatterCache, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+ (NSDateFormatter *)dateReader {
++ (NSDateFormatter *)dateFormatterReader {
 
     static NSString *__standardFormat = nil;
 
@@ -50,7 +50,7 @@ NSString * const TTTStandardFormat = @"MM-dd-YYYY";
     return dateReader;
 }
 
-+ (NSDateFormatter *)dateWriter:(NSString *)format {
++ (NSDateFormatter *)dateFormatterWriter:(NSString *)format {
 
     NSMutableDictionary *formatterCache   = objc_getAssociatedObject(self, &TTTDateFormatterDictionarCacheKey);
     NSDateFormatter *cachedFormatter      = formatterCache[format];
