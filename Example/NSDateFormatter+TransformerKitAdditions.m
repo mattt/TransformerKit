@@ -14,7 +14,7 @@ static const NSString *TTTNSDateFormatterWriterDictionaryKey = @"TTTDateWriter";
 
 static char TTTDateFormatterDictionarCacheKey;
 
-NSString * const TTTStandardFormat = @"MM-dd-YYYY";
+NSString * const TTTDateStandardFormat = @"MM-dd-yyyy";
 
 @implementation NSDateFormatter (TransformerKitAdditions)
 
@@ -35,7 +35,7 @@ NSString * const TTTStandardFormat = @"MM-dd-YYYY";
     if (!dateReader) {
 
         if (__standardFormat == nil) {
-            __standardFormat = TTTStandardFormat;
+            __standardFormat = TTTDateStandardFormat;
         }
 
         dateReader = [[self alloc] init];
@@ -67,9 +67,9 @@ NSString * const TTTStandardFormat = @"MM-dd-YYYY";
     if (!currentDateFormatter) {
 
         currentDateFormatter = [[self alloc] init];
-//
-//        dateWriter.locale     = [NSLocale currentLocale];
-//        dateWriter.timeZone   = [NSTimeZone systemTimeZone];
+
+        currentDateFormatter.locale     = [NSLocale currentLocale];
+        currentDateFormatter.timeZone   = [NSTimeZone systemTimeZone];
         currentDateFormatter.dateFormat = format;
 
         [dictionary setObject:currentDateFormatter forKey:TTTNSDateFormatterWriterDictionaryKey];
