@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const TTTStandardFormat;
+extern NSString * const TTTDateStandardFormat;
 
 @interface NSDateFormatter (TransformerKitAdditions)
 
