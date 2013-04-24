@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0108F5EE1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0108F5ED1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.m */; };
 		F818950F164DBA9900D19548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F818950E164DBA9900D19548 /* main.m */; };
 		F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
 		F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TTTStringTransformers.m */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0108F5EC1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TransformerKitAdditions.h"; sourceTree = "<group>"; };
+		0108F5ED1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TransformerKitAdditions.m"; sourceTree = "<group>"; };
 		F818950D164DBA9300D19548 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
 		F818950E164DBA9900D19548 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+TransformerKit.h"; sourceTree = "<group>"; };
@@ -52,9 +55,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0108F5EB172820D6001D290C /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				0108F5EC1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.h */,
+				0108F5ED1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 		F8189510164DBAC800D19548 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				0108F5EB172820D6001D290C /* Additions */,
 				F8189519164DBB0600D19548 /* TransformerKit */,
 			);
 			name = Vendor;
@@ -173,6 +186,7 @@
 				F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */,
 				F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */,
 				F8E5DBCA165578FB002C26DC /* TTTImageTransformers.m in Sources */,
+				0108F5EE1728210B001D290C /* NSDateFormatter+TransformerKitAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
