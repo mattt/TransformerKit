@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0108F5F117283D18001D290C /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0108F5F017283D17001D290C /* TTTDateTransformers.m */; };
-		0108F60617286882001D290C /* NSDateFormatter+TransformerKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0108F60417286850001D290C /* NSDateFormatter+TransformerKitAdditions.m */; };
+		0108F60E17286983001D290C /* NSDateFormatter+TransformerKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0108F60B1728696A001D290C /* NSDateFormatter+TransformerKitAdditions.m */; };
 		F818950F164DBA9900D19548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F818950E164DBA9900D19548 /* main.m */; };
 		F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
 		F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TTTStringTransformers.m */; };
@@ -31,8 +31,8 @@
 /* Begin PBXFileReference section */
 		0108F5EF17283D17001D290C /* TTTDateTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDateTransformers.h; sourceTree = "<group>"; };
 		0108F5F017283D17001D290C /* TTTDateTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDateTransformers.m; sourceTree = "<group>"; };
-		0108F60317286850001D290C /* NSDateFormatter+TransformerKitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TransformerKitAdditions.h"; sourceTree = "<group>"; };
-		0108F60417286850001D290C /* NSDateFormatter+TransformerKitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TransformerKitAdditions.m"; sourceTree = "<group>"; };
+		0108F60B1728696A001D290C /* NSDateFormatter+TransformerKitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+TransformerKitAdditions.m"; path = "../TransformerKit/NSDateFormatter+TransformerKitAdditions.m"; sourceTree = "<group>"; };
+		0108F60D1728697B001D290C /* NSDateFormatter+TransformerKitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+TransformerKitAdditions.h"; path = "../TransformerKit/NSDateFormatter+TransformerKitAdditions.h"; sourceTree = "<group>"; };
 		F818950D164DBA9300D19548 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
 		F818950E164DBA9900D19548 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+TransformerKit.h"; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 		0108F5EB172820D6001D290C /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				0108F60317286850001D290C /* NSDateFormatter+TransformerKitAdditions.h */,
-				0108F60417286850001D290C /* NSDateFormatter+TransformerKitAdditions.m */,
+				0108F60D1728697B001D290C /* NSDateFormatter+TransformerKitAdditions.h */,
+				0108F60B1728696A001D290C /* NSDateFormatter+TransformerKitAdditions.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -187,8 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0108F60617286882001D290C /* NSDateFormatter+TransformerKitAdditions.m in Sources */,
 				F818950F164DBA9900D19548 /* main.m in Sources */,
+				0108F60E17286983001D290C /* NSDateFormatter+TransformerKitAdditions.m in Sources */,
 				F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */,
 				F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */,
 				F8E5DBCA165578FB002C26DC /* TTTImageTransformers.m in Sources */,
