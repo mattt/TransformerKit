@@ -26,6 +26,11 @@ int main(int argc, const char * argv[]) {
         } enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSLog(@"%@: %@", key, [[NSValueTransformer valueTransformerForName:obj] transformedValue:key]);
         }];
+
+        NSDictionary *customDateDictionary = @{TTTDateTransformerCustomDateKey : [NSDate date], TTTDateTransformerCustomFormatKey : @"yyyy-MM-dd HH:mm:ss zzz"};
+
+        NSLog(@"Standard date: %@", [[NSValueTransformer valueTransformerForName:TTTDefaultDateTransformerName] transformedValue:[NSDate date]]);
+        NSLog(@"Custom date: %@", [[NSValueTransformer valueTransformerForName:TTTDateTransformerName] transformedValue:customDateDictionary]);
     }
     
     return 0;
