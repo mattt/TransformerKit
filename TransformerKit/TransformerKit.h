@@ -24,4 +24,5 @@
     #define _TRANSFORMER_KIT_
 
     #import "TTTStringTransformers.h"
+    #import "TTTDateTransformers.h"
 #endif
