@@ -10,17 +10,21 @@
 #import "NSValueTransformer+TransformerKit.h"
 #import "NSDateFormatter+TransformerKitAdditions.h"
 
-NSString * const TTTDefaultDateTransformerName     = @"TTTDefaultDateTransformerName";
-NSString * const TTTDateTransformerName            = @"TTTDateTransformerName";
-NSString * const TTTDateTransformerCustomFormatKey = @"dateFormat";
-NSString * const TTTDateTransformerCustomDateKey   = @"dateValue";
+NSString * const TTTDefaultDateStringTransformerName     = @"TTTDefaultDateStringTransformerName";
+NSString * const TTTDateStringTransformerName            = @"TTTDateStringTransformerName";
+NSString * const TTTDefaultStringDateTransformerName     = @"TTTDefaultStringDateTransformerName";
+NSString * const TTTStringDateTransformerName            = @"TTTStringDateTransformerName";
+
+NSString * const TTTDateTransformerCustomFormatKey       = @"TTTDateFormat";
+NSString * const TTTDateTransformerCustomDateStringKey   = @"TTTDateStringValue";
+NSString * const TTTDateTransformerCustomStringDateKey   = @"TTTStringDateValue";
 
 @implementation TTTDateTransformers
 
 + (void)load {
 
     @autoreleasepool {
-        [NSValueTransformer registerValueTransformerWithName:TTTDefaultDateTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTDefaultDateStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
 
             NSAssert([value isKindOfClass:[NSDate class]], @"Value must instance of NSDate");
 
@@ -29,16 +33,37 @@ NSString * const TTTDateTransformerCustomDateKey   = @"dateValue";
             return [formatter stringFromDate:value];
         }];
 
-        [NSValueTransformer registerValueTransformerWithName:TTTDateTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+        [NSValueTransformer registerValueTransformerWithName:TTTDateStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
 
-            NSAssert([value isKindOfClass:[NSDictionary class]], @"Value must instance of NSDate");
+            NSAssert([value isKindOfClass:[NSDictionary class]], @"Value must instance of NSDictionary");
 
-            NSDate *date     = value[TTTDateTransformerCustomDateKey] != nil ? value[TTTDateTransformerCustomDateKey] : [NSDate date];
-            NSString *format = value[TTTDateTransformerCustomFormatKey] != nil ? value[TTTDateTransformerCustomFormatKey] : TTTStandardFormat;
-
+            NSDate *date               = value[TTTDateTransformerCustomDateStringKey] != nil ? value[TTTDateTransformerCustomDateStringKey] : [NSDate date];
+            NSString *format           = value[TTTDateTransformerCustomFormatKey] != nil ? value[TTTDateTransformerCustomFormatKey] : TTTDateStandardFormat;
             NSDateFormatter *formatter = [NSDateFormatter dateFormatterWriter:format];
 
             return [formatter stringFromDate:date];
+        }];
+
+        [NSValueTransformer registerValueTransformerWithName:TTTDefaultStringDateTransformerName transformedValueClass:[NSDate class] returningTransformedValueWithBlock:^id(id value) {
+
+            NSAssert([value isKindOfClass:[NSString class]], @"Value must instance of NSString");
+
+            NSDateFormatter *formatter = [NSDateFormatter dateFormatterReader];
+            NSDate *finalDate          = [formatter dateFromString:value];
+
+            return finalDate;
+        }];
+
+        [NSValueTransformer registerValueTransformerWithName:TTTStringDateTransformerName transformedValueClass:[NSDate class] returningTransformedValueWithBlock:^id(id value) {
+
+            NSAssert([value isKindOfClass:[NSDictionary class]], @"Value must instance of NSDictionary");
+            NSAssert([value[TTTDateTransformerCustomStringDateKey] isKindOfClass:[NSString class]], @"Value must instance of NSString");
+
+            NSString *dateString       = value[TTTDateTransformerCustomStringDateKey];
+            NSString *format           = value[TTTDateTransformerCustomFormatKey] != nil ? value[TTTDateTransformerCustomFormatKey] : TTTDateStandardFormat;
+            NSDateFormatter *formatter = [NSDateFormatter dateFormatterWriter:format];
+            
+            return [formatter dateFromString:dateString];
         }];
     }
 }
