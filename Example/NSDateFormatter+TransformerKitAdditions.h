@@ -12,7 +12,7 @@ extern NSString * const TTTStandardFormat;
 
 @interface NSDateFormatter (TransformerKitAdditions)
 
-+ (NSDateFormatter *)dateReader;
-+ (NSDateFormatter *)dateWriter:(NSString *)format;
++ (NSDateFormatter *)dateFormatterReader;
++ (NSDateFormatter *)dateFormatterWriter:(NSString *)format;
 
 @end
