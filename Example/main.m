@@ -27,10 +27,15 @@ int main(int argc, const char * argv[]) {
             NSLog(@"%@: %@", key, [[NSValueTransformer valueTransformerForName:obj] transformedValue:key]);
         }];
 
-        NSDictionary *customDateDictionary = @{TTTDateTransformerCustomDateKey : [NSDate date], TTTDateTransformerCustomFormatKey : @"yyyy-MM-dd HH:mm:ss zzz"};
+        NSDictionary *customDateDictionary       = @{TTTDateTransformerCustomDateStringKey : [NSDate date], TTTDateTransformerCustomFormatKey : @"yyyy-MM-dd HH:mm:ss zzz"};
+        NSDictionary *customStringDateDictionary = @{TTTDateTransformerCustomStringDateKey : @"2013-04-24 13:43:28 EDT", TTTDateTransformerCustomFormatKey : @"yyyy-MM-dd HH:mm:ss zzz"};
+        NSString *sampleDateForStandard          = @"04-13-2012";
 
-        NSLog(@"Standard date: %@", [[NSValueTransformer valueTransformerForName:TTTDefaultDateTransformerName] transformedValue:[NSDate date]]);
-        NSLog(@"Custom date: %@", [[NSValueTransformer valueTransformerForName:TTTDateTransformerName] transformedValue:customDateDictionary]);
+        NSLog(@"Standard date to string: %@", [[NSValueTransformer valueTransformerForName:TTTDefaultDateStringTransformerName] transformedValue:[NSDate date]]);
+        NSLog(@"Custom date to string: %@", [[NSValueTransformer valueTransformerForName:TTTDateStringTransformerName] transformedValue:customDateDictionary]);
+
+        NSLog(@"Standard string to date: %@", [[NSValueTransformer valueTransformerForName:TTTDefaultStringDateTransformerName] transformedValue:sampleDateForStandard]);
+        NSLog(@"Custom string to date: %@", [[NSValueTransformer valueTransformerForName:TTTStringDateTransformerName] transformedValue:customStringDateDictionary]);
     }
     
     return 0;
