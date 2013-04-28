@@ -62,7 +62,11 @@ static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapIma
             return NSImageRepresentationWithType(value, NSPNGFileType, nil);
 #endif
         } allowingReverseTransformationWithBlock:^id(id value) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+            return [[imageClass alloc] initWithData:value scale:[[UIScreen mainScreen] scale]];
+#elif __MAC_OS_X_VERSION_MIN_REQUIRED
             return [[imageClass alloc] initWithData:value];
+#endif
         }];
 
         [NSValueTransformer registerValueTransformerWithName:TTTJPEGRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
@@ -72,7 +76,11 @@ static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapIma
             return NSImageRepresentationWithType(value, NSPNGFileType, [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:kTTTJPEGRepresentationCompressionQuality] forKey:NSImageCompressionFactor]);
 #endif
         } allowingReverseTransformationWithBlock:^id(id value) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+            return [[imageClass alloc] initWithData:value scale:[[UIScreen mainScreen] scale]];
+#elif __MAC_OS_X_VERSION_MIN_REQUIRED
             return [[imageClass alloc] initWithData:value];
+#endif        
         }];
 
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
