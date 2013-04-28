@@ -23,7 +23,7 @@
 
 #import "TransformerKit.h"
 
-int main(int argc, const char * argv[]) {
+int main(int __unused argc, const char __unused *argv[]) {
     @autoreleasepool {
         [@{
             @"Capitalized String" : TTTCapitalizedStringTransformerName,
@@ -36,11 +36,11 @@ int main(int argc, const char * argv[]) {
             @"Reversed String" : TTTReverseStringTransformerName,
             @"Rémövê Dîaçritics" : TTTRemoveDiacriticStringTransformerName,
             @"ट्रांस्लितेराते स्ट्रिंग" : TTTTransliterateStringToLatinTransformerName,
-        } enumerateKeysAndObjectsUsingBlock:^(id value, id name, BOOL *stop) {
+        } enumerateKeysAndObjectsUsingBlock:^(id __unused value, id __unused name, BOOL __unused *stop) {
             NSLog(@"%@: %@", value, [[NSValueTransformer valueTransformerForName:name] transformedValue:value]);
         }];
 
-        [@[TTTISO8601DateTransformerName] enumerateObjectsUsingBlock:^(id name, NSUInteger idx, BOOL *stop) {
+        [@[TTTISO8601DateTransformerName] enumerateObjectsUsingBlock:^(id name, NSUInteger __unused idx, BOOL __unused *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
             NSLog(@"%@ (Timestamp): %@", name, [transformer transformedValue:[NSDate date]]);
             NSLog(@"%@ (Date): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:[NSDate date]]]);

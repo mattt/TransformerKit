@@ -46,7 +46,7 @@ static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string
 
 static NSString * TTTReversedStringWithString(NSString *string) {
     __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[string length]];
-    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange __unused substringRange, NSRange __unused enclosingRange, BOOL __unused *stop) {
         [reversedString appendString:substring];
     }];
     
@@ -72,7 +72,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
         [NSValueTransformer registerValueTransformerWithName:TTTCamelCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-            [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [components enumerateObjectsUsingBlock:^(id component, NSUInteger __unused idx, BOOL __unused *stop) {
                 [mutableComponents addObject:[component capitalizedString]];
             }];
 
@@ -82,7 +82,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
         [NSValueTransformer registerValueTransformerWithName:TTTLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-            [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [components enumerateObjectsUsingBlock:^(id component, NSUInteger __unused idx, BOOL __unused *stop) {
                 [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
             }];
 
@@ -92,7 +92,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
         [NSValueTransformer registerValueTransformerWithName:TTTSnakeCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-            [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [components enumerateObjectsUsingBlock:^(id component, NSUInteger __unused idx, BOOL __unused *stop) {
                 [mutableComponents addObject:[component lowercaseString]];
             }];
 
@@ -102,7 +102,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
         [NSValueTransformer registerValueTransformerWithName:TTTTrainCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-            [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+            [components enumerateObjectsUsingBlock:^(id component, NSUInteger __unused idx, BOOL __unused *stop) {
                 [mutableComponents addObject:[component lowercaseString]];
             }];
 
