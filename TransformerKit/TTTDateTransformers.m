@@ -41,7 +41,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
 }
 
 static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
-    static int const ISO_8601_MAX_LENGTH = 25;
+    static unsigned const ISO_8601_MAX_LENGTH = 25;
     
     const char *source = [timestamp cStringUsingEncoding:NSUTF8StringEncoding];
     char destination[ISO_8601_MAX_LENGTH];

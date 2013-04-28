@@ -47,6 +47,7 @@ static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string
 static NSString * TTTReversedStringWithString(NSString *string) {
     __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[string length]];
     [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+        (void)substring, (void)substringRange, (void)enclosingRange, (void)stop;
         [reversedString appendString:substring];
     }];
     
@@ -73,6 +74,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+                (void)idx, (void)stop;
                 [mutableComponents addObject:[component capitalizedString]];
             }];
 
@@ -83,6 +85,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+                (void)stop;
                 [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
             }];
 
@@ -93,6 +96,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+                (void)idx, (void)stop;
                 [mutableComponents addObject:[component lowercaseString]];
             }];
 
@@ -103,6 +107,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             NSArray *components = TTTComponentsBySplittingOnWhitespaceWithString(value);
             NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
             [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
+                (void)idx, (void)stop;
                 [mutableComponents addObject:[component lowercaseString]];
             }];
 

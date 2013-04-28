@@ -64,6 +64,7 @@
     
     SEL transformedValueSelector = @selector(transformedValue:);
     IMP transformedValueImplementation = imp_implementationWithBlock([^id (id _self, id _value){
+        (void)_self;
         return transformedValueBlock(_value);
     } copy]);
     Method transformedValueMethod = class_getInstanceMethod(class, transformedValueSelector);
@@ -72,6 +73,7 @@
     if (reverseTransformedValueBlock) {
         SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation:);
         IMP allowsReverseTransformationImplementation = imp_implementationWithBlock([^BOOL (id _self) {
+            (void)_self;
             return YES;
         } copy]);
         Method allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
@@ -79,6 +81,7 @@
         
         SEL reverseTransformedValueSelector = @selector(reverseTransformedValue:);
         IMP reverseTransformedValueImplementation = imp_implementationWithBlock([^id (id _self, id _value){
+            (void)_self;
             return reverseTransformedValueBlock(_value);
         } copy]);
         Method reverseTransformedValueMethod = class_getInstanceMethod(class, reverseTransformedValueSelector);
