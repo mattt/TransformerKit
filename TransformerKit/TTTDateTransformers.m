@@ -68,7 +68,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         .tm_isdst = -1,
     };
 
-    strptime_l(source, "%FT%T%z", &time, NULL);
+    strptime_l(destination, "%FT%T%z", &time, NULL);
 
     return [NSDate dateWithTimeIntervalSince1970:mktime(&time)];
 }
