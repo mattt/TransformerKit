@@ -1,4 +1,4 @@
-// TKStringTransformers.h
+// TTTStringTransformers.h
 //
 // Copyright (c) 2012 Mattt Thompson (http://mattt.me)
 //
@@ -25,58 +25,58 @@
 /**
  
  */
-extern NSString * const TKCapitalizedStringTransformerName;
+extern NSString * const TTTCapitalizedStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKUppercaseStringTransformerName;
+extern NSString * const TTTUppercaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKLowercaseStringTransformerName;
+extern NSString * const TTTLowercaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKCamelCaseStringTransformerName;
+extern NSString * const TTTCamelCaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKLlamaCaseStringTransformerName;
+extern NSString * const TTTLlamaCaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKObjectiveCaseStringTransformerName;
+extern NSString * const TTTObjectiveCaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKSnakeCaseStringTransformerName;
+extern NSString * const TTTSnakeCaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKTrainCaseStringTransformerName;
+extern NSString * const TTTTrainCaseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKReverseStringTransformerName;
+extern NSString * const TTTReverseStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKRemoveDiacriticStringTransformerName;
+extern NSString * const TTTRemoveDiacriticStringTransformerName;
 
 /**
  
  */
-extern NSString * const TKTransliterateStringToLatinTransformerName;
+extern NSString * const TTTTransliterateStringToLatinTransformerName;
 
-@interface TKStringTransformers : NSObject
+@interface TTTStringTransformers : NSObject
 
 @end

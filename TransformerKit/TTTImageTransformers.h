@@ -1,4 +1,4 @@
-// TKImageTransformers.h
+// TTTImageTransformers.h
 //
 // Copyright (c) 2012 Mattt Thompson (http://mattt.me)
 //
@@ -24,31 +24,31 @@
 
 #if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
 
-#define kTKJPEGRepresentationCompressionQuality 0.75
+#define kTTTJPEGRepresentationCompressionQuality 0.75
 
 /**
  
  */
-extern NSString * const TKPNGRepresentationImageTransformerName;
+extern NSString * const TTTPNGRepresentationImageTransformerName;
 
 /**
  
  */
-extern NSString * const TKJPEGRepresentationImageTransformerName;
+extern NSString * const TTTJPEGRepresentationImageTransformerName;
 
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
 /**
  
  */
-extern NSString * const TKGIFRepresentationImageTransformerName;
+extern NSString * const TTTGIFRepresentationImageTransformerName;
 
 /**
  
  */
-extern NSString * const TKTIFFRepresentationImageTransformerName;
+extern NSString * const TTTTIFFRepresentationImageTransformerName;
 #endif
 
-@interface TKImageTransformers : NSObject
+@interface TTTImageTransformers : NSObject
 
 @end
 
