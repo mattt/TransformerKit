@@ -63,24 +63,24 @@
     class_replaceMethod(class, transformedValueClassSelector, transformedValueClassImplementation, method_getTypeEncoding(transformedValueClassMethod));
     
     SEL transformedValueSelector = @selector(transformedValue:);
-    IMP transformedValueImplementation = imp_implementationWithBlock([^id (id __unused _self, id _value){
+    IMP transformedValueImplementation = imp_implementationWithBlock(^id (id __unused _self, id _value){
         return transformedValueBlock(_value);
-    } copy]);
+    });
     Method transformedValueMethod = class_getInstanceMethod(class, transformedValueSelector);
     class_replaceMethod(class, transformedValueSelector, transformedValueImplementation, method_getTypeEncoding(transformedValueMethod));
     
     if (reverseTransformedValueBlock) {
         SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation:);
-        IMP allowsReverseTransformationImplementation = imp_implementationWithBlock([^BOOL (id __unused _self) {
+        IMP allowsReverseTransformationImplementation = imp_implementationWithBlock(^BOOL (id __unused _self) {
             return YES;
-        } copy]);
+        });
         Method allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
         class_replaceMethod(class, allowsReverseTransformationSelector, allowsReverseTransformationImplementation, method_getTypeEncoding(allowsReverseTransformationMethod));
         
         SEL reverseTransformedValueSelector = @selector(reverseTransformedValue:);
-        IMP reverseTransformedValueImplementation = imp_implementationWithBlock([^id (id __unused _self, id _value){
+        IMP reverseTransformedValueImplementation = imp_implementationWithBlock(^id (id __unused _self, id _value){
             return reverseTransformedValueBlock(_value);
-        } copy]);
+        });
         Method reverseTransformedValueMethod = class_getInstanceMethod(class, reverseTransformedValueSelector);
         class_replaceMethod(class, reverseTransformedValueSelector, reverseTransformedValueImplementation, method_getTypeEncoding(reverseTransformedValueMethod));
     }
