@@ -29,6 +29,7 @@ NSString * const TTTUppercaseStringTransformerName = @"TTTUppercaseStringTransfo
 NSString * const TTTLowercaseStringTransformerName = @"TTTLowercaseStringTransformer";
 NSString * const TTTCamelCaseStringTransformerName = @"TTTCamelCaseStringTransformer";
 NSString * const TTTLlamaCaseStringTransformerName = @"TTTLlamaCaseStringTransformer";
+NSString * const TTTObjectiveCaseStringTransformerName = @"TTTObjectiveCaseStringTransformer";
 NSString * const TTTSnakeCaseStringTransformerName = @"TTTSnakeCaseStringTransformer";
 NSString * const TTTTrainCaseStringTransformerName = @"TTTTrainCaseStringTransformer";
 NSString * const TTTReverseStringTransformerName = @"TTTReverseStringTransformer";
@@ -39,6 +40,17 @@ static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    
+    return components;
+}
+
+static NSArray * TTTComponentsBySplittingOnWhitespaceAndUnderscoreWithString(NSString *string) {
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSMutableCharacterSet *characterSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"_"];
+    [characterSet formUnionWithCharacterSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSArray *components = [string componentsSeparatedByCharactersInSet:characterSet];
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     
     return components;
@@ -86,6 +98,20 @@ static NSString * TTTReversedStringWithString(NSString *string) {
                 [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
             }];
 
+            return [mutableComponents componentsJoinedByString:@""];
+        }];
+        
+        [NSValueTransformer registerValueTransformerWithName:TTTObjectiveCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnWhitespaceAndUnderscoreWithString(value);
+            NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
+            [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL __unused *stop) {
+                if ([component caseInsensitiveCompare:@"url"] == NSOrderedSame || [component caseInsensitiveCompare:@"html"] == NSOrderedSame) {
+                    [mutableComponents addObject:[component uppercaseString]];
+                } else {
+                    [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
+                }
+            }];
+            
             return [mutableComponents componentsJoinedByString:@""];
         }];
 

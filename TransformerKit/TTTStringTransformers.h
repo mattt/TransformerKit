@@ -50,6 +50,11 @@ extern NSString * const TTTLlamaCaseStringTransformerName;
 /**
  
  */
+extern NSString * const TTTObjectiveCaseStringTransformerName;
+
+/**
+ 
+ */
 extern NSString * const TTTSnakeCaseStringTransformerName;
 
 /**
