@@ -38,7 +38,7 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 - Rémövê Dîaçritics _(Remove accents and combining marks)_
 - ट्रांस्लितेराते स्ट्रिंग _(Transliterate to Latin)_
 
-### Image TRansformers
+### Image Transformers
 
 - PNG Representation*
 - JPEG Representation*
