@@ -43,7 +43,7 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 - PNG Representation*
 - JPEG Representation*
 
-> * - **Reversible**
+> \* - **Reversible**
 
 ## Contact
 
