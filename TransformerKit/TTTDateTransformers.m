@@ -34,7 +34,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _iso8601DateFormatter = [[NSDateFormatter alloc] init];
-        [_iso8601DateFormatter setDateFormat:@"YYYY-MM-dd'T'HH:mm:ssZ"];
+        [_iso8601DateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         [_iso8601DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
     });
 
