@@ -62,7 +62,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         memcpy(destination, source, MIN(length, ISO_8601_MAX_LENGTH - 1));
     }
     
-    destination[sizeof(destination) - 1] = NULL;
+    destination[sizeof(destination) - 1] = 0;
 
     struct tm time = {
         .tm_isdst = -1,
