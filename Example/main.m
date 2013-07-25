@@ -39,6 +39,16 @@ int main(int __unused argc, const char __unused *argv[]) {
         } enumerateKeysAndObjectsUsingBlock:^(id __unused value, id __unused name, BOOL __unused *stop) {
             NSLog(@"%@: %@", value, [[NSValueTransformer valueTransformerForName:name] transformedValue:value]);
         }];
+        
+        [@{
+            @"CamelCaseString" : TTTCamelCaseStringTransformerName,
+            @"llamaCaseString" : TTTLlamaCaseStringTransformerName,
+            @"snake_case_string" : TTTSnakeCaseStringTransformerName,
+            @"train-case-string" : TTTTrainCaseStringTransformerName,
+            @"gnirtS desreveR" : TTTReverseStringTransformerName,
+        } enumerateKeysAndObjectsUsingBlock:^(id __unused value, id __unused name, BOOL __unused *stop) {
+            NSLog(@"%@ (Reversed): %@", value, [[NSValueTransformer valueTransformerForName:name] reverseTransformedValue:value]);
+        }];
 
         [@[TTTISO8601DateTransformerName] enumerateObjectsUsingBlock:^(id name, NSUInteger __unused idx, BOOL __unused *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];

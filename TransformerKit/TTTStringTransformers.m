@@ -44,6 +44,29 @@ static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string
     return components;
 }
 
+static NSArray * TTTComponentsBySplittingOnUppercaseWithString(NSString *string) {
+    NSMutableString *mutableString = [string mutableCopy];
+    NSMutableArray *mutableComponents = [NSMutableArray new];
+    
+    NSRange uppercaseRange;
+    while ((uppercaseRange = [mutableString rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]]).location != NSNotFound) {
+        NSRange componentRange = NSMakeRange(0, uppercaseRange.location);
+        
+        [mutableComponents addObject:[mutableString substringWithRange:componentRange]];
+        [mutableString deleteCharactersInRange:componentRange];
+        
+        // Lowercase first letter, so it's not returned by -rangeOfCharacterFromSet:
+        [mutableString replaceCharactersInRange:NSMakeRange(0, 1) withString:[[mutableString substringToIndex:1] lowercaseString]];
+    }
+    
+    [mutableComponents addObject:mutableString];
+    
+    NSArray *components = [NSArray arrayWithArray:mutableComponents];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    
+    return components;
+}
+
 static NSString * TTTReversedStringWithString(NSString *string) {
     __block NSMutableString *reversedString = [NSMutableString stringWithCapacity:[string length]];
     [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange __unused substringRange, NSRange __unused enclosingRange, BOOL __unused *stop) {
@@ -77,6 +100,10 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             }];
 
             return [mutableComponents componentsJoinedByString:@""];
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnUppercaseWithString(value);
+            
+            return [components componentsJoinedByString:@" "];
         }];
 
         [NSValueTransformer registerValueTransformerWithName:TTTLlamaCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
@@ -87,6 +114,10 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             }];
 
             return [mutableComponents componentsJoinedByString:@""];
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            NSArray *components = TTTComponentsBySplittingOnUppercaseWithString(value);
+            
+            return [components componentsJoinedByString:@" "];
         }];
 
         [NSValueTransformer registerValueTransformerWithName:TTTSnakeCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
@@ -97,6 +128,10 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             }];
 
             return [mutableComponents componentsJoinedByString:@"_"];
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            NSArray *components = [value componentsSeparatedByString:@"_"];
+            
+            return [components componentsJoinedByString:@" "];
         }];
 
         [NSValueTransformer registerValueTransformerWithName:TTTTrainCaseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
@@ -107,6 +142,10 @@ static NSString * TTTReversedStringWithString(NSString *string) {
             }];
 
             return [mutableComponents componentsJoinedByString:@"-"];
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            NSArray *components = [value componentsSeparatedByString:@"-"];
+            
+            return [components componentsJoinedByString:@" "];
         }];
 
         [NSValueTransformer registerValueTransformerWithName:TTTReverseStringTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
