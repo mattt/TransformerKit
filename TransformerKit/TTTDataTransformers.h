@@ -1,6 +1,9 @@
-// TransformerKit.h
 //
-// Copyright (c) 2012 Mattt Thompson (http://mattt.me)
+//  TTTDataTransformers.h
+//  TransformerKit Example
+//
+//  Created by Paulo Andrade on 7/15/13.
+//  Copyright (c) 2013 Mattt Thompson. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,11 +23,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef _TRANSFORMER_KIT_
-    #define _TRANSFORMER_KIT_
 
-    #import "TTTDateTransformers.h"
-    #import "TTTImageTransformers.h"
-    #import "TTTStringTransformers.h"
-    #import "TTTDataTransformers.h"
-#endif
+#import <Foundation/Foundation.h>
+
+extern NSString * const TTTHexDataTransformerName;
+
+@interface TTTDataTransformers : NSObject
+
+@end

@@ -45,6 +45,14 @@ int main(int __unused argc, const char __unused *argv[]) {
             NSLog(@"%@ (Timestamp): %@", name, [transformer transformedValue:[NSDate date]]);
             NSLog(@"%@ (Date): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:[NSDate date]]]);
         }];
+        
+        [@[TTTHexDataTransformerName] enumerateObjectsUsingBlock:^(id name, NSUInteger __unused idx, BOOL __unused *stop) {
+            NSString *exampleString = @"abcdef";
+            NSData *exampleData = [exampleString dataUsingEncoding:NSUTF8StringEncoding];
+            NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
+            NSLog(@"%@ (Hex): %@", name, [transformer transformedValue:exampleData]);
+            NSLog(@"%@ (Data): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:exampleData]]);
+        }];
     }
 
     return 0;
