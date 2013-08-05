@@ -30,6 +30,9 @@
 NSString * const TTTHexDataTransformerName = @"TTTHexDataTransformerName";
 
 static NSData *TTTHexDataFromString(NSString *hexString){
+    if (hexString == nil) {
+        return nil;
+    }
     const char *pos = [hexString UTF8String];
     unsigned char dataOut[strlen(pos)];
     int i = 0;
