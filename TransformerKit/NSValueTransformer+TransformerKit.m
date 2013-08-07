@@ -71,7 +71,7 @@
     class_replaceMethod(class, transformedValueSelector, transformedValueImplementation, method_getTypeEncoding(transformedValueMethod));
     
     if (reverseTransformedValueBlock) {
-        SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation:);
+        SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation);
         IMP allowsReverseTransformationImplementation = imp_implementationWithBlock(^BOOL (id __unused _self) {
             return YES;
         });
