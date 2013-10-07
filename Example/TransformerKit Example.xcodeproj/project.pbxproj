@@ -13,6 +13,7 @@
 		F83F36DD1729BC4500FB13E3 /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F83F36DC1729BC4500FB13E3 /* TTTDateTransformers.m */; };
 		F8AC4E11164DBA440083D561 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AC4E10164DBA440083D561 /* Foundation.framework */; };
 		F8E5DBCA165578FB002C26DC /* TTTImageTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */; };
+		FAB04CD61802ABE30004EDBE /* TTTJSONTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB04CD51802ABE30004EDBE /* TTTJSONTransformers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,8 @@
 		F8AC4E10164DBA440083D561 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F8E5DBC8165578FB002C26DC /* TTTImageTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTImageTransformers.h; sourceTree = "<group>"; };
 		F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTImageTransformers.m; sourceTree = "<group>"; };
+		FAB04CD41802ABE30004EDBE /* TTTJSONTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTJSONTransformers.h; sourceTree = "<group>"; };
+		FAB04CD51802ABE30004EDBE /* TTTJSONTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTJSONTransformers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				F818951E164DBB0600D19548 /* TransformerKit.h */,
+				FAB04CD41802ABE30004EDBE /* TTTJSONTransformers.h */,
+				FAB04CD51802ABE30004EDBE /* TTTJSONTransformers.m */,
 				F83F36DB1729BC4500FB13E3 /* TTTDateTransformers.h */,
 				F83F36DC1729BC4500FB13E3 /* TTTDateTransformers.m */,
 				F8E5DBC8165578FB002C26DC /* TTTImageTransformers.h */,
@@ -174,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB04CD61802ABE30004EDBE /* TTTJSONTransformers.m in Sources */,
 				F818950F164DBA9900D19548 /* main.m in Sources */,
 				F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */,
 				F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */,
