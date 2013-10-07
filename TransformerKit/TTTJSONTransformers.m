@@ -12,7 +12,7 @@
 NSString * const TTTJSONTransformerName = @"TTTJSONTransformerName";
 
 static NSString * NSObjectToJSONString(NSObject *object) {
-  NSLog(@"%s", __FUNCTION__);
+
   NSError *error = nil;
   NSData *result = [NSJSONSerialization dataWithJSONObject:object options: NSJSONWritingPrettyPrinted error: &error];
   if (error) {
@@ -29,7 +29,7 @@ static NSString * NSObjectToJSONString(NSObject *object) {
 }
 
 static id JSONStringToNSObject(NSString *json) {
-  NSLog(@"%s", __FUNCTION__);
+
   NSData *jsonData = [json dataUsingEncoding: NSUTF8StringEncoding];
   
   NSError *error = nil;
