@@ -71,7 +71,10 @@
     class_replaceMethod(class, transformedValueSelector, transformedValueImplementation, method_getTypeEncoding(transformedValueMethod));
     
     if (reverseTransformedValueBlock) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation:);
+#pragma clang diagnostic pop        
         IMP allowsReverseTransformationImplementation = imp_implementationWithBlock(^BOOL (id __unused _self) {
             return YES;
         });
