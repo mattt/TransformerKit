@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:TransformerKit"
+      name = "TransformerKit">
+      <FileRef
+         location = "group:NSValueTransformer+TransformerKit.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSValueTransformer+TransformerKit.m">
+      </FileRef>
+      <FileRef
+         location = "group:TransformerKit.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTDateTransformers.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTDateTransformers.m">
+      </FileRef>
+      <FileRef
+         location = "group:TTTImageTransformers.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTImageTransformers.m">
+      </FileRef>
+      <FileRef
+         location = "group:TTTStringTransformers.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTStringTransformers.m">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Example/TransformerKit Example.xcodeproj">
    </FileRef>
