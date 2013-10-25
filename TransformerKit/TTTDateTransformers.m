@@ -34,7 +34,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _iso8601DateFormatter = [[NSDateFormatter alloc] init];
-        [_iso8601DateFormatter setDateFormat:@"YYYY-MM-dd'T'HH:mm:ssZ"];
+        [_iso8601DateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         [_iso8601DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
     });
 
@@ -42,6 +42,10 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
 }
 
 static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
+    if(!timestamp){
+        return nil;
+    }
+
     static unsigned int const ISO_8601_MAX_LENGTH = 25;
     
     const char *source = [timestamp cStringUsingEncoding:NSUTF8StringEncoding];
@@ -62,7 +66,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         memcpy(destination, source, MIN(length, ISO_8601_MAX_LENGTH - 1));
     }
     
-    destination[sizeof(destination) - 1] = NULL;
+    destination[sizeof(destination) - 1] = 0;
 
     struct tm time = {
         .tm_isdst = -1,
