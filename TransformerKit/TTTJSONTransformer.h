@@ -1,6 +1,6 @@
-// TransformerKit.h
+// TTTJSONTransformer.h
 //
-// Copyright (c) 2012 Mattt Thompson (http://mattt.me)
+// Copyright (c) 2013 Mattt Thompson
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,11 +20,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef _TRANSFORMER_KIT_
-    #define _TRANSFORMER_KIT_
+#import <Foundation/Foundation.h>
 
-    #import "TTTDateTransformers.h"
-    #import "TTTImageTransformers.h"
-    #import "TTTStringTransformers.h"
-    #import "TTTJSONTransformer.h"
-#endif
+/**
+ 
+ */
+extern NSString * const TTTJSONTransformerName;
+
+/**
+ 
+ */
+@interface TTTJSONTransformer : NSValueTransformer
+
+/**
+ 
+ */
+@property (nonatomic, assign) NSJSONReadingOptions readingOptions;
+
+/**
+ 
+ */
+@property (nonatomic, assign) NSJSONWritingOptions writingOptions;
+
+@end

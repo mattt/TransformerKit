@@ -26,6 +26,12 @@
          location = "group:TTTImageTransformers.m">
       </FileRef>
       <FileRef
+         location = "group:TTTJSONTransformer.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTJSONTransformer.m">
+      </FileRef>
+      <FileRef
          location = "group:TTTStringTransformers.h">
       </FileRef>
       <FileRef
