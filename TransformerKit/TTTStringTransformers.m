@@ -46,25 +46,22 @@ static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string
 
 static NSArray * TTTComponentsBySplittingOnUppercaseWithString(NSString *string) {
     NSMutableString *mutableString = [string mutableCopy];
-    NSMutableArray *mutableComponents = [NSMutableArray new];
+    NSMutableArray *mutableComponents = [[NSMutableArray alloc] init];
     
-    NSRange uppercaseRange;
+    NSRange uppercaseRange = {.location = NSNotFound, .length = 0};
     while ((uppercaseRange = [mutableString rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]]).location != NSNotFound) {
         NSRange componentRange = NSMakeRange(0, uppercaseRange.location);
         
         [mutableComponents addObject:[mutableString substringWithRange:componentRange]];
         [mutableString deleteCharactersInRange:componentRange];
         
-        // Lowercase first letter, so it's not returned by -rangeOfCharacterFromSet:
         [mutableString replaceCharactersInRange:NSMakeRange(0, 1) withString:[[mutableString substringToIndex:1] lowercaseString]];
     }
-    
     [mutableComponents addObject:mutableString];
     
-    NSArray *components = [NSArray arrayWithArray:mutableComponents];
-    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    [mutableComponents filterUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     
-    return components;
+    return [NSArray arrayWithArray:mutableComponents];
 }
 
 static NSString * TTTReversedStringWithString(NSString *string) {
@@ -172,5 +169,3 @@ static NSString * TTTReversedStringWithString(NSString *string) {
 }
 
 @end
-
-
