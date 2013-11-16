@@ -71,16 +71,13 @@
     class_replaceMethod(class, transformedValueSelector, transformedValueImplementation, method_getTypeEncoding(transformedValueMethod));
     
     if (reverseTransformedValueBlock) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-        SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation:);
-#pragma clang diagnostic pop        
+        SEL allowsReverseTransformationSelector = @selector(allowsReverseTransformation);
         IMP allowsReverseTransformationImplementation = imp_implementationWithBlock(^BOOL (id __unused _self) {
             return YES;
         });
 
         Method allowsReverseTransformationMethod;
-#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (!defined(__IPHONE_5_0) || __IPHONE_OS_VERSION_MIN_REQUIRED <= __IPHONE_5_0)
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (!defined(__IPHONE_5_0) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_5_0)
         allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
 #else
         allowsReverseTransformationMethod = class_getInstanceMethod(class, allowsReverseTransformationSelector);
