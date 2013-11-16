@@ -48,7 +48,7 @@ static NSArray * TTTComponentsBySplittingOnUppercaseWithString(NSString *string)
     NSMutableString *mutableString = [string mutableCopy];
     NSMutableArray *mutableComponents = [[NSMutableArray alloc] init];
     
-    NSRange uppercaseRange = {.location = NSNotFound, .length = 0};
+    NSRange uppercaseRange;
     while ((uppercaseRange = [mutableString rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]]).location != NSNotFound) {
         NSRange componentRange = NSMakeRange(0, uppercaseRange.location);
         
