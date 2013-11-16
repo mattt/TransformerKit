@@ -37,8 +37,14 @@ int main(int __unused argc, const char __unused *argv[]) {
             @"Rémövê Dîaçritics" : TTTRemoveDiacriticStringTransformerName,
             @"ट्रांस्लितेराते स्ट्रिंग" : TTTTransliterateStringToLatinTransformerName,
             @{@"key" : @"value"} : TTTJSONTransformerName
-        } enumerateKeysAndObjectsUsingBlock:^(id __unused value, id __unused name, BOOL __unused *stop) {
+        } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id name, __unused BOOL *stop) {
             NSLog(@"%@: %@", value, [[NSValueTransformer valueTransformerForName:name] transformedValue:value]);
+        }];
+        
+        [@{
+           @"s\\v'ErStS": @"IPA-XSampa"
+        } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id transform, __unused BOOL *stop) {
+            NSLog(@"%@: %@", value, [TTTStringTransformerForICUTransform(transform) reverseTransformedValue:value]);
         }];
         
         [@{
@@ -47,11 +53,11 @@ int main(int __unused argc, const char __unused *argv[]) {
             @"snake_case_string" : TTTSnakeCaseStringTransformerName,
             @"train-case-string" : TTTTrainCaseStringTransformerName,
             @"gnirtS desreveR" : TTTReverseStringTransformerName,
-        } enumerateKeysAndObjectsUsingBlock:^(id __unused value, id __unused name, BOOL __unused *stop) {
+        } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id name, __unused BOOL *stop) {
             NSLog(@"%@ (Reversed): %@", value, [[NSValueTransformer valueTransformerForName:name] reverseTransformedValue:value]);
         }];
 
-        [@[TTTISO8601DateTransformerName] enumerateObjectsUsingBlock:^(id name, NSUInteger __unused idx, BOOL __unused *stop) {
+        [@[TTTISO8601DateTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
             NSLog(@"%@ (Timestamp): %@", name, [transformer transformedValue:[NSDate date]]);
             NSLog(@"%@ (Date): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:[NSDate date]]]);

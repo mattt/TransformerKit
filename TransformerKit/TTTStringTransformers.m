@@ -73,6 +73,27 @@ static NSString * TTTReversedStringWithString(NSString *string) {
     return reversedString;
 }
 
+NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform) {
+    NSString *transformerName = [NSString stringWithFormat:@"TTTStringICUTransformer(%@)", transform];
+    if (![[NSValueTransformer valueTransformerNames] containsObject:transformerName]) {
+        BOOL success = [NSValueTransformer registerValueTransformerWithName:transformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
+            NSMutableString *mutableString = [NSMutableString stringWithString:[value description]];
+            CFStringTransform((__bridge CFMutableStringRef)mutableString, NULL, (__bridge CFStringRef)transform, NO);
+            return [NSString stringWithString:mutableString];
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            NSMutableString *mutableString = [NSMutableString stringWithString:[value description]];
+            CFStringTransform((__bridge CFMutableStringRef)mutableString, NULL, (__bridge CFStringRef)transform, YES);
+            return [NSString stringWithString:mutableString];
+        }];
+    
+        if (!success) {
+            return nil;
+        }
+    }
+    
+    return [NSValueTransformer valueTransformerForName:transformerName];
+}
+
 @implementation TTTStringTransformers
 
 + (void)load {

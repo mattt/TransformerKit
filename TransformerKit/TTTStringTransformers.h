@@ -72,6 +72,11 @@ extern NSString * const TTTRemoveDiacriticStringTransformerName;
  */
 extern NSString * const TTTTransliterateStringToLatinTransformerName;
 
+/**
+ 
+ */
+extern NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform);
+
 @interface TTTStringTransformers : NSObject
 
 @end

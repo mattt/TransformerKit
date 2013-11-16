@@ -37,11 +37,20 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 - esreveR* _(Reverse)_
 - Rémövê Dîaçritics _(Remove accents and combining marks)_
 - ट्रांस्लितेराते स्ट्रिंग _(Transliterate to Latin)_
+- Any Valid [ICU Transform](http://userguide.icu-project.org/transforms/general)*
 
 ### Image Transformers
 
 - PNG Representation*
 - JPEG Representation*
+
+### Date Transformers
+
+- ISO 8601 Timestamp*
+
+### Data Transformers
+
+- JSON Transformer*
 
 > \* - **Reversible**
 
