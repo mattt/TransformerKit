@@ -36,6 +36,7 @@ int main(int __unused argc, const char __unused *argv[]) {
             @"Reversed String" : TTTReverseStringTransformerName,
             @"Rémövê Dîaçritics" : TTTRemoveDiacriticStringTransformerName,
             @"ट्रांस्लितेराते स्ट्रिंग" : TTTTransliterateStringToLatinTransformerName,
+            @{ @"key" : @"value"} : TTTJSONTransformerName
         } enumerateKeysAndObjectsUsingBlock:^(id __unused value, id __unused name, BOOL __unused *stop) {
             NSLog(@"%@: %@", value, [[NSValueTransformer valueTransformerForName:name] transformedValue:value]);
         }];
