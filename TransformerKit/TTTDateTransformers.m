@@ -56,7 +56,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         return nil;
     }
 
-    if (length == 20 && source[length - 1] == 'Z') {
+    if ((length == 20 || length == 24) && source[length - 1] == 'Z') {
         memcpy(destination, source, length - 1);
         strncpy(destination + length - 1, "+0000\0", 6);
     } else if (length == 25 && source[22] == ':') {
