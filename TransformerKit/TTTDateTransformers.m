@@ -46,7 +46,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         return nil;
     }
 
-    static unsigned int const ISO_8601_MAX_LENGTH = 25;
+    static unsigned int const ISO_8601_MAX_LENGTH = 29;
     
     const char *source = [timestamp cStringUsingEncoding:NSUTF8StringEncoding];
     char destination[ISO_8601_MAX_LENGTH];
@@ -56,12 +56,20 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         return nil;
     }
 
+    double milliseconds = 0.f;
     if (length == 20 && source[length - 1] == 'Z') {
         memcpy(destination, source, length - 1);
         strncpy(destination + length - 1, "+0000\0", 6);
+    } else if (length == 24 && source[length - 5] == '.' && source[length - 1] == 'Z') {
+        memcpy(destination, source, length - 5);
+        strncpy(destination + length - 5, "+0000\0", 6);
+        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.f;
     } else if (length == 25 && source[22] == ':') {
         memcpy(destination, source, 22);
         memcpy(destination + 22, source + 23, 2);
+    } else if (length == 29 && source[26] == ':') {
+        memcpy(destination, source, 26);
+        memcpy(destination + 26, source + 27, 2);
     } else {
         memcpy(destination, source, MIN(length, ISO_8601_MAX_LENGTH - 1));
     }
@@ -74,7 +82,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
 
     strptime_l(destination, "%FT%T%z", &time, NULL);
 
-    return [NSDate dateWithTimeIntervalSince1970:mktime(&time)];
+    return [NSDate dateWithTimeIntervalSince1970:mktime(&time) + milliseconds];
 }
 
 @implementation TTTDateTransformers
