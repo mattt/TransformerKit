@@ -37,6 +37,12 @@
       <FileRef
          location = "group:TTTStringTransformers.m">
       </FileRef>
+      <FileRef
+         location = "group:TTTCryptographyTransformers.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTCryptographyTransformers.m">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Example/TransformerKit Example.xcodeproj">

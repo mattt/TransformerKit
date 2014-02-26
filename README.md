@@ -48,11 +48,15 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 
 - ISO 8601 Timestamp*
 
-### Data Transformers
+### JSON Data Transformers
 
 - JSON Transformer*
 
 > \* - **Reversible**
+
+### Cryptographic Transformers
+
+- MD5, SHA-1, SHA-256, et al. Digest
 
 ## Contact
 
