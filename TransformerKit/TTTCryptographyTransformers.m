@@ -78,9 +78,8 @@ static inline __attribute__((const)) unsigned int TTTDigestLengthForAlgorithm(TT
         case TTTSHA384:
             return CC_SHA384_DIGEST_LENGTH;
         case TTTSHA512:
-            return CC_SHA512_DIGEST_LENGTH;
         default:
-            return 0;
+            return CC_SHA512_DIGEST_LENGTH;
     }
 }
 
