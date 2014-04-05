@@ -97,28 +97,28 @@ extern NSString * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NS
 
     switch (algorithm) {
         case TTTMD2:
-            CC_MD2(data.bytes, length, output);
+            CC_MD2(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTMD4:
-            CC_MD4(data.bytes, length, output);
+            CC_MD4(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTMD5:
-            CC_MD5(data.bytes, length, output);
+            CC_MD5(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTSHA1:
-            CC_SHA1(data.bytes, length, output);
+            CC_SHA1(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTSHA224:
-            CC_SHA224(data.bytes, length, output);
+            CC_SHA224(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTSHA256:
-            CC_SHA256(data.bytes, length, output);
+            CC_SHA256(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTSHA384:
-            CC_SHA384(data.bytes, length, output);
+            CC_SHA384(data.bytes, (CC_LONG)data.length, output);
             break;
         case TTTSHA512:
-            CC_SHA512(data.bytes, length, output);
+            CC_SHA512(data.bytes, (CC_LONG)data.length, output);
             break;
     }
 
