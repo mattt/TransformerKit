@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
 #import "TTTCryptographyTransformers.h"
 
 #import "NSValueTransformer+TransformerKit.h"
@@ -180,3 +181,4 @@ __attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData
 }
 
 @end
+#endif

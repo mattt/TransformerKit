@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
 #import <Foundation/Foundation.h>
 
 /**
@@ -110,3 +111,4 @@ extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDig
 + (void)registerValueTransformerForDigestAlgorithm:(TTTDigestAlgorithm)algorithm;
 
 @end
+#endif
