@@ -54,7 +54,7 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 
 > \* - **Reversible**
 
-### Cryptographic Transformers
+### Cryptographic Transformers _(OS X)_
 
 - MD5, SHA-1, SHA-256, et al. Digest
 
