@@ -67,6 +67,17 @@ int main(int __unused argc, const char __unused *argv[]) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
             NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
         }];
+
+
+        [@[TTTBase16EncodedDataTransformerName, TTTBase32EncodedDataTransformerName, TTTBase64EncodedDataTransformerName, TTTBase85EncodedDataTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
+            NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
+            NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
+
+            NSData *data = [name dataUsingEncoding:NSASCIIStringEncoding];
+            if (![[transformer reverseTransformedValue:[transformer transformedValue:data]] isEqualToData:data]) {
+                NSLog(@"Not equal!");
+            }
+        }];
     }
 
     return 0;

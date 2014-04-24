@@ -14,6 +14,12 @@
          location = "group:TransformerKit.h">
       </FileRef>
       <FileRef
+         location = "group:TTTDataTransformer.h">
+      </FileRef>
+      <FileRef
+         location = "group:TTTDataTransformer.m">
+      </FileRef>
+      <FileRef
          location = "group:TTTDateTransformers.h">
       </FileRef>
       <FileRef

@@ -11,8 +11,10 @@
 		F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
 		F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TTTStringTransformers.m */; };
 		F83F36DD1729BC4500FB13E3 /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F83F36DC1729BC4500FB13E3 /* TTTDateTransformers.m */; };
+		F899BEED190970DE00724845 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F899BEEC190970DE00724845 /* Security.framework */; };
 		F8AC4E11164DBA440083D561 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AC4E10164DBA440083D561 /* Foundation.framework */; };
 		F8B725A218BD8D9A00C12AFC /* TTTCryptographyTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */; };
+		F8B725E918BE590700C12AFC /* TTTDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725E818BE590700C12AFC /* TTTDataTransformer.m */; };
 		F8E5DBCA165578FB002C26DC /* TTTImageTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */; };
 		FAB04CD61802ABE30004EDBE /* TTTJSONTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB04CD51802ABE30004EDBE /* TTTJSONTransformer.m */; };
 /* End PBXBuildFile section */
@@ -39,11 +41,14 @@
 		F818951E164DBB0600D19548 /* TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerKit.h; sourceTree = "<group>"; };
 		F83F36DB1729BC4500FB13E3 /* TTTDateTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDateTransformers.h; sourceTree = "<group>"; };
 		F83F36DC1729BC4500FB13E3 /* TTTDateTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDateTransformers.m; sourceTree = "<group>"; };
+		F899BEEC190970DE00724845 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F8AC4E0C164DBA440083D561 /* TransformerKit Example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TransformerKit Example"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AC4E10164DBA440083D561 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F8B7259B18BD883600C12AFC /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		F8B725A018BD8D9A00C12AFC /* TTTCryptographyTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTCryptographyTransformers.h; sourceTree = "<group>"; };
 		F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTCryptographyTransformers.m; sourceTree = "<group>"; };
+		F8B725E718BE590700C12AFC /* TTTDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDataTransformer.h; sourceTree = "<group>"; };
+		F8B725E818BE590700C12AFC /* TTTDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDataTransformer.m; sourceTree = "<group>"; };
 		F8E5DBC8165578FB002C26DC /* TTTImageTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTImageTransformers.h; sourceTree = "<group>"; };
 		F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTImageTransformers.m; sourceTree = "<group>"; };
 		FAB04CD41802ABE30004EDBE /* TTTJSONTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTJSONTransformer.h; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F899BEED190970DE00724845 /* Security.framework in Frameworks */,
 				F8AC4E11164DBA440083D561 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +90,8 @@
 				F818951D164DBB0600D19548 /* TTTStringTransformers.m */,
 				F8B725A018BD8D9A00C12AFC /* TTTCryptographyTransformers.h */,
 				F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */,
+				F8B725E718BE590700C12AFC /* TTTDataTransformer.h */,
+				F8B725E818BE590700C12AFC /* TTTDataTransformer.m */,
 				F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */,
 				F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */,
 			);
@@ -112,6 +120,7 @@
 		F8AC4E0F164DBA440083D561 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F899BEEC190970DE00724845 /* Security.framework */,
 				F8B7259B18BD883600C12AFC /* libcommonCrypto.dylib */,
 				F8AC4E10164DBA440083D561 /* Foundation.framework */,
 			);
@@ -161,7 +170,7 @@
 		F8AC4E03164DBA440083D561 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mattt Thompson";
 			};
 			buildConfigurationList = F8AC4E06164DBA440083D561 /* Build configuration list for PBXProject "TransformerKit Example" */;
@@ -186,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B725E918BE590700C12AFC /* TTTDataTransformer.m in Sources */,
 				F818950F164DBA9900D19548 /* main.m in Sources */,
 				F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */,
 				F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */,
@@ -203,7 +213,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -233,7 +242,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;

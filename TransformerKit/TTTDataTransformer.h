@@ -1,6 +1,6 @@
-// TransformerKit.h
+// TTTDataTransformer.h
 //
-// Copyright (c) 2012 Mattt Thompson (http://mattt.me)
+// Copyright (c) 2014 Mattt Thompson (http://mattt.me)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,13 +20,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef _TRANSFORMER_KIT_
-    #define _TRANSFORMER_KIT_
+#import <Foundation/Foundation.h>
 
-    #import "TTTDateTransformers.h"
-    #import "TTTImageTransformers.h"
-    #import "TTTStringTransformers.h"
-    #import "TTTJSONTransformer.h"
-    #import "TTTCryptographyTransformers.h"
-    #import "TTTDataTransformer.h"
-#endif
+extern NSString * const TTTBase2EncodedDataTransformerName;
+
+extern NSString * const TTTBase16EncodedDataTransformerName;
+
+extern NSString * const TTTBase32EncodedDataTransformerName;
+
+extern NSString * const TTTBase64EncodedDataTransformerName;
+
+extern NSString * const TTTBase85EncodedDataTransformerName;
+
+///
+
+extern NSString * const TTTBinaryStringEncodedDataTransformerName;
+
+
+extern NSString * const TTTHexadecimalStringEncodedDataTransformerName;
+
+
+extern NSString * const TTTAscii85EncodedDataTransformerName;
+
+
+@interface TTTDataTransformer : NSValueTransformer
+
+@end
