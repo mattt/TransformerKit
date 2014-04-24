@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'TransformerKit'
-  s.version  = '0.4.0'
+  s.version  = '0.5.0'
   s.license  = 'MIT'
   s.summary  = 'A block-based API for NSValueTransformer, with a growing collection of useful examples.'
   s.homepage = 'https://github.com/mattt/TransformerKit'
   s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
-  s.source   = { :git => 'https://github.com/mattt/TransformerKit.git', :tag => '0.4.0' }
+  s.source   = { :git => 'https://github.com/mattt/TransformerKit.git', :tag => '0.5.0' }
   s.source_files = 'TransformerKit'
 
   s.ios.deployment_target = '5.0'
@@ -21,6 +21,12 @@ Pod::Spec.new do |s|
     ss.dependency 'TransformerKit/Core'
     ss.source_files = 'TransformerKit/TTTCryptographyTransformers.{h,m}'
     ss.osx.frameworks = "CommonCrypto"
+  end
+
+  s.subspec 'Data' do |ss|
+    ss.dependency 'TransformerKit/Core'
+    ss.source_files = 'TransformerKit/TTTDataTransformers.{h,m}'
+    ss.frameworks = "Security"
   end
 
   s.subspec 'Date' do |ss|
