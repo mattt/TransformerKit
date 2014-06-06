@@ -85,6 +85,76 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
     return [NSDate dateWithTimeIntervalSince1970:mktime(&time) + milliseconds];
 }
 
+NSString * const TTTRFC2822DateTransformerName = @"TTTRFC2822DateTransformerName";
+
+static NSString * TTTRFC2822TimestampFromDate(NSDate *date) {
+    static NSDateFormatter *_rfc2822DateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _rfc2822DateFormatter = [[NSDateFormatter alloc] init];
+        [_rfc2822DateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+        [_rfc2822DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    });
+
+    return [_rfc2822DateFormatter stringFromDate:date];
+}
+
+static NSDate * TTTDateFromRFC2822Timestamp(NSString *timestamp) {
+    // Create date formatter
+    static NSDateFormatter *dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLocale *en_US_POSIX = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:en_US_POSIX];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    });
+
+    // Process
+    NSDate *date = nil;
+    NSString *RFC822String = [[NSString stringWithString:timestamp] uppercaseString];
+    if ([RFC822String rangeOfString:@","].location != NSNotFound) {
+        if (!date) { // Sun, 19 May 2002 15:21:36 GMT
+            [dateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm:ss zzz"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+        if (!date) { // Sun, 19 May 2002 15:21 GMT
+            [dateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm zzz"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+        if (!date) { // Sun, 19 May 2002 15:21:36
+            [dateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm:ss"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+        if (!date) { // Sun, 19 May 2002 15:21
+            [dateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+    } else {
+        if (!date) { // 19 May 2002 15:21:36 GMT
+            [dateFormatter setDateFormat:@"d MMM yyyy HH:mm:ss zzz"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+        if (!date) { // 19 May 2002 15:21 GMT
+            [dateFormatter setDateFormat:@"d MMM yyyy HH:mm zzz"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+        if (!date) { // 19 May 2002 15:21:36
+            [dateFormatter setDateFormat:@"d MMM yyyy HH:mm:ss"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+        if (!date) { // 19 May 2002 15:21
+            [dateFormatter setDateFormat:@"d MMM yyyy HH:mm"];
+            date = [dateFormatter dateFromString:RFC822String];
+        }
+    }
+    if (!date) {
+        NSLog(@"Could not parse RFC822 date: \"%@\" Possibly invalid format.", timestamp);
+    }
+    return date;
+
+}
+
 @implementation TTTDateTransformers
 
 + (void)load {
@@ -94,6 +164,13 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         } allowingReverseTransformationWithBlock:^id(id value) {
             return TTTDateFromISO8601Timestamp(value);
         }];
+
+        [NSValueTransformer registerValueTransformerWithName:TTTRFC2822DateTransformerName transformedValueClass:[NSDate class] returningTransformedValueWithBlock:^id(id value) {
+            return TTTRFC2822TimestampFromDate(value);
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            return TTTDateFromRFC2822Timestamp(value);
+        }];
+
     }
 }
 
