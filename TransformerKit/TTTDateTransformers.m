@@ -42,7 +42,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
 }
 
 static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
-    if(!timestamp){
+    if (!timestamp) {
         return nil;
     }
 

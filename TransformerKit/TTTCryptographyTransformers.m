@@ -155,6 +155,7 @@ __attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData
 __attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data) {
     unsigned int length = TTTDigestLengthForAlgorithm(algorithm);
     unsigned char output[length];
+
     CCHmac(TTTHMACAlgorithmForDigestAlgorithm(algorithm), key.bytes, key.length, data.bytes, data.length, output);
 
     return [NSData dataWithBytes:output length:length];
