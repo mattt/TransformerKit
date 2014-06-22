@@ -28,6 +28,7 @@
 #include <xlocale.h>
 
 NSString * const TTTISO8601DateTransformerName = @"TTTISO8601DateTransformerName";
+NSString * const TTTRFC2822DateTransformerName = @"TTTRFC2822DateTransformerName";
 
 static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     static NSDateFormatter *_iso8601DateFormatter = nil;
@@ -85,6 +86,90 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
     return [NSDate dateWithTimeIntervalSince1970:mktime(&time) + milliseconds];
 }
 
+static NSString * TTTRFC2822TimestampFromDate(NSDate *date) {
+    static NSDateFormatter *_rfc2822DateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _rfc2822DateFormatter = [[NSDateFormatter alloc] init];
+        [_rfc2822DateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm:ss zzz"];
+        [_rfc2822DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    });
+
+    return [_rfc2822DateFormatter stringFromDate:date];
+}
+
+static inline const char * TTTFormatForRFC2822Timestamp(const char *timestamp) {
+    NSCParameterAssert(timestamp);
+
+    size_t length = strlen(timestamp);
+    switch (length) {
+        case 11:
+            return "%d %b %Y";
+        case 15:
+            return "%a %d %b %Y";
+        case 16:
+            if (timestamp[3] == ',') {
+                return "%a, %d %b %Y";
+            } else if (timestamp[14] == ':') {
+                return "%d %b %Y %H:%M";
+            }
+            break;
+        case 18:
+            return "%d %b %Y %H:%M:%S";
+        case 21:
+            return "%a %d %b %Y %H:%M";
+        case 22:
+            return "%a, %d %b %Y %H:%M";
+        case 24:
+            return "%d %b %Y %H:%M:%S";
+        case 25:
+            return "%a, %d %b %Y %H:%M:%S";
+        case 26:
+            return "%d %b %Y %H:%M:%S %z";
+        case 28:
+        case 29:
+            if (timestamp[3] == ',') {
+                return "%a, %d %b %Y %H:%M:%S %Z";
+            } else {
+                return "%a %d %b %Y %H:%M:%S %Z";
+            }
+            break;
+        case 30:
+        case 31:
+            if (timestamp[3] == ',') {
+                return "%a, %d %b %Y %H:%M:%S %z";
+            } else {
+                return "%a %d %b %Y %H:%M:%S %z";
+            }
+            break;
+        default:
+            break;
+    }
+
+    return NULL;
+}
+
+static NSDate * TTTDateFromRFC2822Timestamp(NSString *timestamp) {
+    if (!timestamp) {
+        return nil;
+    }
+
+    const char *source = [timestamp cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *format = TTTFormatForRFC2822Timestamp(source);
+
+    if (format == NULL) {
+        return nil;
+    }
+
+    struct tm time = {
+        .tm_isdst = -1,
+    };
+
+    strptime_l(source, format, &time, NULL);
+
+    return [NSDate dateWithTimeIntervalSince1970:mktime(&time)];
+}
+
 @implementation TTTDateTransformers
 
 + (void)load {
@@ -93,6 +178,12 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
             return TTTISO8601TimestampFromDate(value);
         } allowingReverseTransformationWithBlock:^id(id value) {
             return TTTDateFromISO8601Timestamp(value);
+        }];
+
+        [NSValueTransformer registerValueTransformerWithName:TTTRFC2822DateTransformerName transformedValueClass:[NSDate class] returningTransformedValueWithBlock:^id(id value) {
+            return TTTRFC2822TimestampFromDate(value);
+        } allowingReverseTransformationWithBlock:^id(id value) {
+            return TTTDateFromRFC2822Timestamp(value);
         }];
     }
 }

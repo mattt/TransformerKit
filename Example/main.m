@@ -57,7 +57,7 @@ int main(int __unused argc, const char __unused *argv[]) {
             NSLog(@"%@ (Reversed): %@", value, [[NSValueTransformer valueTransformerForName:name] reverseTransformedValue:value]);
         }];
 
-        [@[TTTISO8601DateTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
+        [@[TTTISO8601DateTransformerName, TTTRFC2822DateTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
             NSLog(@"%@ (Timestamp): %@", name, [transformer transformedValue:[NSDate date]]);
             NSLog(@"%@ (Date): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:[NSDate date]]]);

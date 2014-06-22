@@ -27,6 +27,11 @@
  */
 extern NSString * const TTTISO8601DateTransformerName;
 
+/**
+ @warning Because `time.h` represents timestamps as 32-bit integers, times before 00:00::00 UTC on Thursday, January 1, 1970 and after 03:14:07 UTC on Tuesday, 19 January 2038 cannot be represented.
+ */
+extern NSString * const TTTRFC2822DateTransformerName;
+
 @interface TTTDateTransformers : NSObject
 
 @end
