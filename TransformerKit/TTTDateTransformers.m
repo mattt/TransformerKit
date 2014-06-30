@@ -57,14 +57,14 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
         return nil;
     }
 
-    double milliseconds = 0.f;
+    double milliseconds = 0.0f;
     if (length == 20 && source[length - 1] == 'Z') {
         memcpy(destination, source, length - 1);
         strncpy(destination + length - 1, "+0000\0", 6);
     } else if (length == 24 && source[length - 5] == '.' && source[length - 1] == 'Z') {
         memcpy(destination, source, length - 5);
         strncpy(destination + length - 5, "+0000\0", 6);
-        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.f;
+        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0f;
     } else if (length == 25 && source[22] == ':') {
         memcpy(destination, source, 22);
         memcpy(destination + 22, source + 23, 2);
