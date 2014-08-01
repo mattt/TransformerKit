@@ -59,11 +59,11 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 
 - JSON Transformer*
 
-> \* - **Reversible**
-
 ### Cryptographic Transformers _(OS X)_
 
 - MD5, SHA-1, SHA-256, et al. Digest
+
+> \* - **Reversible**
 
 ## Contact
 
