@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'TransformerKit'
-  s.version  = '0.5.1'
+  s.version  = '0.5.2'
   s.license  = 'MIT'
   s.summary  = 'A block-based API for NSValueTransformer, with a growing collection of useful examples.'
   s.homepage = 'https://github.com/mattt/TransformerKit'
