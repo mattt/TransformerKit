@@ -67,12 +67,12 @@ typedef NS_ENUM(TTTDigestAlgorithm, TTTSecureHashAlgorithm) {
 /**
  
  */
-extern NSString * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string);
+extern NSData * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string);
 
 /**
  
  */
-extern NSString * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data);
+extern NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data);
 
 /**
  

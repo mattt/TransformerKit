@@ -84,11 +84,11 @@ static inline __attribute__((const)) unsigned int TTTDigestLengthForAlgorithm(TT
     }
 }
 
-extern NSString * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string) {
+NSData * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string) {
     return TTTDigestWithAlgorithmForData(algorithm, [string dataUsingEncoding:NSASCIIStringEncoding]);
 }
 
-extern NSString * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data) {
+NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data) {
     if (!data) {
         return nil;
     }
