@@ -79,6 +79,8 @@
         Method allowsReverseTransformationMethod;
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (!defined(__IPHONE_5_0) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_5_0)
         allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
+#elif defined(MAC_OS_X_VERSION_MIN_REQUIRED) && (!defined(MAC_OS_X_VERSION_10_8) || MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_8)
+        allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
 #else
         allowsReverseTransformationMethod = class_getInstanceMethod(class, allowsReverseTransformationSelector);
 #endif
