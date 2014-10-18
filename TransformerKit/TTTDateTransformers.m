@@ -29,6 +29,8 @@
 
 NSString * const TTTISO8601DateTransformerName = @"TTTISO8601DateTransformerName";
 NSString * const TTTRFC2822DateTransformerName = @"TTTRFC2822DateTransformerName";
+NSString * const TTTDateByISO8601StringTransformerName = @"TTTDateByISO8601StringTransformerName";
+NSString * const TTTDateByRFC2822StringTransformerName = @"TTTDateByISO8601StringTransformerName";
 
 static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     static NSDateFormatter *_iso8601DateFormatter = nil;
@@ -174,17 +176,43 @@ static NSDate * TTTDateFromRFC2822Timestamp(NSString *timestamp) {
 
 + (void)load {
     @autoreleasepool {
-        [NSValueTransformer registerValueTransformerWithName:TTTISO8601DateTransformerName transformedValueClass:[NSDate class] returningTransformedValueWithBlock:^id(id value) {
-            return TTTISO8601TimestampFromDate(value);
-        } allowingReverseTransformationWithBlock:^id(id value) {
-            return TTTDateFromISO8601Timestamp(value);
-        }];
 
-        [NSValueTransformer registerValueTransformerWithName:TTTRFC2822DateTransformerName transformedValueClass:[NSDate class] returningTransformedValueWithBlock:^id(id value) {
-            return TTTRFC2822TimestampFromDate(value);
-        } allowingReverseTransformationWithBlock:^id(id value) {
-            return TTTDateFromRFC2822Timestamp(value);
-        }];
+        // Date --> String
+
+        [NSValueTransformer registerValueTransformerWithName:TTTISO8601DateTransformerName
+                                       transformedValueClass:[NSDate class]
+                          returningTransformedValueWithBlock:^id(id value) {
+                              return TTTISO8601TimestampFromDate(value);
+                          } allowingReverseTransformationWithBlock:^id(id value) {
+                              return TTTDateFromISO8601Timestamp(value);
+                          }];
+
+        [NSValueTransformer registerValueTransformerWithName:TTTRFC2822DateTransformerName
+                                       transformedValueClass:[NSDate class]
+                          returningTransformedValueWithBlock:^id(id value) {
+                              return TTTRFC2822TimestampFromDate(value);
+                          } allowingReverseTransformationWithBlock:^id(id value) {
+                              return TTTDateFromRFC2822Timestamp(value);
+                          }];
+
+        // String --> Date
+
+        [NSValueTransformer registerValueTransformerWithName:TTTDateByISO8601StringTransformerName
+                                       transformedValueClass:[NSString class]
+                          returningTransformedValueWithBlock:^id(id value) {
+                              return TTTDateFromISO8601Timestamp(value);
+                          } allowingReverseTransformationWithBlock:^id(id value) {
+                              return TTTISO8601TimestampFromDate(value);
+                          }];
+
+        [NSValueTransformer registerValueTransformerWithName:TTTDateByRFC2822StringTransformerName
+                                       transformedValueClass:[NSString class]
+                          returningTransformedValueWithBlock:^id(id value) {
+                              return TTTDateFromRFC2822Timestamp(value);
+                          } allowingReverseTransformationWithBlock:^id(id value) {
+                              return TTTRFC2822TimestampFromDate(value);
+                          }];
+
     }
 }
 
