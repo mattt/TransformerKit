@@ -53,7 +53,8 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 
 ### Date Transformers
 
-- ISO 8601 Timestamp*
+- [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm) Timestamp*
+- [RFC 2822](https://www.ietf.org/rfc/rfc2822) Timestamp*
 
 ### JSON Data Transformers
 
@@ -61,7 +62,7 @@ TransformerKit also contains a _growing_ number of convenient transformers that 
 
 ### Cryptographic Transformers _(OS X)_
 
-- MD5, SHA-1, SHA-256, et al. Digest
+- MD5, SHA-1, SHA-256, et al. Digests
 
 > \* - **Reversible**
 
