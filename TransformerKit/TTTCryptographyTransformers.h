@@ -77,12 +77,12 @@ extern NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSDa
 /**
  
  */
-extern __attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data);
+extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data);
 
 /**
  
  */
-extern __attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data);
+extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data);
 
 #pragma mark -
 

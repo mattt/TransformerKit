@@ -148,11 +148,11 @@ static inline __attribute__((const)) CCHmacAlgorithm TTTHMACAlgorithmForDigestAl
     }
 }
 
-__attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data) {
+__attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data) {
     return TTTHMACWithDigestAlgorithmForKeyAndData(algorithm, [key dataUsingEncoding:NSASCIIStringEncoding], data);
 }
 
-__attribute__((overloadable)) NSString * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data) {
+__attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data) {
     unsigned int length = TTTDigestLengthForAlgorithm(algorithm);
     unsigned char output[length];
 
