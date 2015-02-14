@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43FC1FD81A8915850047234F /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F83F36DC1729BC4500FB13E3 /* TTTDateTransformers.m */; };
+		43FC1FD91A8915850047234F /* TTTImageTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */; };
+		43FC1FDA1A8915850047234F /* TTTJSONTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB04CD51802ABE30004EDBE /* TTTJSONTransformer.m */; };
+		43FC1FDB1A8915850047234F /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TTTStringTransformers.m */; };
+		43FC1FDC1A8915850047234F /* TTTCryptographyTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */; };
+		43FC1FDD1A8915850047234F /* TTTDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725E818BE590700C12AFC /* TTTDataTransformer.m */; };
+		43FC1FDE1A8915850047234F /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
+		43FC1FE61A89168D0047234F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FC1FE51A89168D0047234F /* main.swift */; };
 		F818950F164DBA9900D19548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F818950E164DBA9900D19548 /* main.m */; };
 		F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
 		F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TTTStringTransformers.m */; };
@@ -20,6 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		43FC1FCF1A89150B0047234F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		F8AC4E0A164DBA440083D561 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -32,6 +49,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		43FC1FD11A89150B0047234F /* Swift TransformerKit Example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift TransformerKit Example"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FC1FE41A89168D0047234F /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		43FC1FE51A89168D0047234F /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = SOURCE_ROOT; };
 		F818950D164DBA9300D19548 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
 		F818950E164DBA9900D19548 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+TransformerKit.h"; sourceTree = "<group>"; };
@@ -56,6 +76,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		43FC1FCE1A89150B0047234F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8AC4E09164DBA440083D561 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43FC1FD21A89150B0047234F /* Swift TransformerKit Example */ = {
+			isa = PBXGroup;
+			children = (
+				43FC1FE41A89168D0047234F /* Bridging-Header.h */,
+				43FC1FE51A89168D0047234F /* main.swift */,
+			);
+			path = "Swift TransformerKit Example";
+			sourceTree = "<group>";
+		};
 		F8189510164DBAC800D19548 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				F8AC4E12164DBA440083D561 /* TransformerKit Example */,
+				43FC1FD21A89150B0047234F /* Swift TransformerKit Example */,
 				F8AC4E0F164DBA440083D561 /* Frameworks */,
 				F8AC4E0D164DBA440083D561 /* Products */,
 				F8189510164DBAC800D19548 /* Vendor */,
@@ -113,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F8AC4E0C164DBA440083D561 /* TransformerKit Example */,
+				43FC1FD11A89150B0047234F /* Swift TransformerKit Example */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +185,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		43FC1FD01A89150B0047234F /* Swift TransformerKit Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43FC1FD51A89150B0047234F /* Build configuration list for PBXNativeTarget "Swift TransformerKit Example" */;
+			buildPhases = (
+				43FC1FCD1A89150B0047234F /* Sources */,
+				43FC1FCE1A89150B0047234F /* Frameworks */,
+				43FC1FCF1A89150B0047234F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swift TransformerKit Example";
+			productName = "Swift TransformerKit Example";
+			productReference = 43FC1FD11A89150B0047234F /* Swift TransformerKit Example */;
+			productType = "com.apple.product-type.tool";
+		};
 		F8AC4E0B164DBA440083D561 /* TransformerKit Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8AC4E1B164DBA440083D561 /* Build configuration list for PBXNativeTarget "TransformerKit Example" */;
@@ -172,6 +227,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mattt Thompson";
+				TargetAttributes = {
+					43FC1FD01A89150B0047234F = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
 			};
 			buildConfigurationList = F8AC4E06164DBA440083D561 /* Build configuration list for PBXProject "TransformerKit Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -186,11 +246,27 @@
 			projectRoot = "";
 			targets = (
 				F8AC4E0B164DBA440083D561 /* TransformerKit Example */,
+				43FC1FD01A89150B0047234F /* Swift TransformerKit Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		43FC1FCD1A89150B0047234F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FC1FD81A8915850047234F /* TTTDateTransformers.m in Sources */,
+				43FC1FD91A8915850047234F /* TTTImageTransformers.m in Sources */,
+				43FC1FDA1A8915850047234F /* TTTJSONTransformer.m in Sources */,
+				43FC1FDB1A8915850047234F /* TTTStringTransformers.m in Sources */,
+				43FC1FDC1A8915850047234F /* TTTCryptographyTransformers.m in Sources */,
+				43FC1FE61A89168D0047234F /* main.swift in Sources */,
+				43FC1FDD1A8915850047234F /* TTTDataTransformer.m in Sources */,
+				43FC1FDE1A8915850047234F /* NSValueTransformer+TransformerKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8AC4E08164DBA440083D561 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,6 +285,58 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		43FC1FD61A89150B0047234F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		43FC1FD71A89150B0047234F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
+			};
+			name = Release;
+		};
 		F8AC4E19164DBA440083D561 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -299,6 +427,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		43FC1FD51A89150B0047234F /* Build configuration list for PBXNativeTarget "Swift TransformerKit Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43FC1FD61A89150B0047234F /* Debug */,
+				43FC1FD71A89150B0047234F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F8AC4E06164DBA440083D561 /* Build configuration list for PBXProject "TransformerKit Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
