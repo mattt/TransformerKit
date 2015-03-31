@@ -26,7 +26,9 @@ extern NSString * const TTTBase2EncodedDataTransformerName;
 
 extern NSString * const TTTBase16EncodedDataTransformerName;
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
 extern NSString * const TTTBase32EncodedDataTransformerName;
+#endif
 
 extern NSString * const TTTBase64EncodedDataTransformerName;
 

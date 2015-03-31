@@ -27,6 +27,10 @@
     #import "TTTImageTransformers.h"
     #import "TTTStringTransformers.h"
     #import "TTTJSONTransformer.h"
-    #import "TTTCryptographyTransformers.h"
     #import "TTTDataTransformer.h"
+    #import "NSValueTransformer+TransformerKit.h"
+
+    #if __MAC_OS_X_VERSION_MIN_REQUIRED
+    #import "TTTCryptographyTransformers.h"
+    #endif
 #endif
