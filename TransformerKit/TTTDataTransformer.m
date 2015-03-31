@@ -30,7 +30,9 @@ NSString * const TTTBase2EncodedDataTransformerName = @"TTTBase2EncodedDataTrans
 
 NSString * const TTTBase16EncodedDataTransformerName = @"TTTBase16EncodedDataTransformer";
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
 NSString * const TTTBase32EncodedDataTransformerName = @"TTTBase32EncodedDataTransformer";
+#endif
 
 NSString * const TTTBase64EncodedDataTransformerName = @"TTTBase64EncodedDataTransformer";
 
@@ -102,6 +104,7 @@ static NSData * TTTDataFromBase16EncodedString(NSString *string) {
 	return output;
 }
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
 static NSString * TTTBase32EncodedStringFromData(NSData *data) {
     SecTransformRef transform = SecEncodeTransformCreate(kSecBase32Encoding, NULL);
     SecTransformSetAttribute(transform, kSecTransformInputAttributeName, (__bridge CFDataRef)data, NULL);
@@ -119,23 +122,32 @@ static NSData * TTTDataFromBase32EncodedString(NSString *string) {
 
     return decodedData;
 }
+#endif
 
 static NSString * TTTBase64EncodedStringFromData(NSData *data) {
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
     SecTransformRef transform = SecEncodeTransformCreate(kSecBase64Encoding, NULL);
     SecTransformSetAttribute(transform, kSecTransformInputAttributeName, (__bridge CFDataRef)data, NULL);
     NSData *encodedData = (__bridge_transfer NSData *)SecTransformExecute(transform, NULL);
     CFRelease(transform);
 
     return [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
+#else
+    return [data base64EncodedStringWithOptions:0];
+#endif
 }
 
 static NSData * TTTDataFromBase64EncodedString(NSString *string) {
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
     SecTransformRef transform = SecDecodeTransformCreate(kSecBase64Encoding, NULL);
     SecTransformSetAttribute(transform, kSecTransformInputAttributeName, (__bridge CFDataRef)[string dataUsingEncoding:NSUTF8StringEncoding], NULL);
     NSData *decodedData = (__bridge_transfer NSData *)SecTransformExecute(transform, NULL);
     CFRelease(transform);
 
     return decodedData;
+#else
+    return [[NSData alloc] initWithBase64EncodedString:string options:0];
+#endif
 }
 
 static NSString * TTTBase85EncodedStringFromData(NSData *data) {
@@ -240,11 +252,13 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
             return TTTDataFromBase16EncodedString(value);
         }];
 
+#if __MAC_OS_X_VERSION_MIN_REQUIRED
         [NSValueTransformer registerValueTransformerWithName:TTTBase32EncodedDataTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             return TTTBase32EncodedStringFromData(value);
         } allowingReverseTransformationWithBlock:^id(id value) {
             return TTTDataFromBase32EncodedString(value);
         }];
+#endif
 
         [NSValueTransformer registerValueTransformerWithName:TTTBase64EncodedDataTransformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
             return TTTBase64EncodedStringFromData(value);
