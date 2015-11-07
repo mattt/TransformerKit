@@ -12,7 +12,7 @@
 		43FC1FDA1A8915850047234F /* TTTJSONTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB04CD51802ABE30004EDBE /* TTTJSONTransformer.m */; };
 		43FC1FDB1A8915850047234F /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951D164DBB0600D19548 /* TTTStringTransformers.m */; };
 		43FC1FDC1A8915850047234F /* TTTCryptographyTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */; };
-		43FC1FDD1A8915850047234F /* TTTDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725E818BE590700C12AFC /* TTTDataTransformer.m */; };
+		43FC1FDD1A8915850047234F /* TTTDataTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725E818BE590700C12AFC /* TTTDataTransformers.m */; };
 		43FC1FDE1A8915850047234F /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */; };
 		43FC1FE61A89168D0047234F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FC1FE51A89168D0047234F /* main.swift */; };
 		F818950F164DBA9900D19548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F818950E164DBA9900D19548 /* main.m */; };
@@ -22,7 +22,7 @@
 		F899BEED190970DE00724845 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F899BEEC190970DE00724845 /* Security.framework */; };
 		F8AC4E11164DBA440083D561 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AC4E10164DBA440083D561 /* Foundation.framework */; };
 		F8B725A218BD8D9A00C12AFC /* TTTCryptographyTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */; };
-		F8B725E918BE590700C12AFC /* TTTDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725E818BE590700C12AFC /* TTTDataTransformer.m */; };
+		F8B725E918BE590700C12AFC /* TTTDataTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B725E818BE590700C12AFC /* TTTDataTransformers.m */; };
 		F8E5DBCA165578FB002C26DC /* TTTImageTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */; };
 		FAB04CD61802ABE30004EDBE /* TTTJSONTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB04CD51802ABE30004EDBE /* TTTJSONTransformer.m */; };
 /* End PBXBuildFile section */
@@ -67,8 +67,8 @@
 		F8B7259B18BD883600C12AFC /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		F8B725A018BD8D9A00C12AFC /* TTTCryptographyTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTCryptographyTransformers.h; sourceTree = "<group>"; };
 		F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTCryptographyTransformers.m; sourceTree = "<group>"; };
-		F8B725E718BE590700C12AFC /* TTTDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDataTransformer.h; sourceTree = "<group>"; };
-		F8B725E818BE590700C12AFC /* TTTDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDataTransformer.m; sourceTree = "<group>"; };
+		F8B725E718BE590700C12AFC /* TTTDataTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDataTransformers.h; sourceTree = "<group>"; };
+		F8B725E818BE590700C12AFC /* TTTDataTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDataTransformers.m; sourceTree = "<group>"; };
 		F8E5DBC8165578FB002C26DC /* TTTImageTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTImageTransformers.h; sourceTree = "<group>"; };
 		F8E5DBC9165578FB002C26DC /* TTTImageTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTImageTransformers.m; sourceTree = "<group>"; };
 		FAB04CD41802ABE30004EDBE /* TTTJSONTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTJSONTransformer.h; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 				F818951D164DBB0600D19548 /* TTTStringTransformers.m */,
 				F8B725A018BD8D9A00C12AFC /* TTTCryptographyTransformers.h */,
 				F8B725A118BD8D9A00C12AFC /* TTTCryptographyTransformers.m */,
-				F8B725E718BE590700C12AFC /* TTTDataTransformer.h */,
-				F8B725E818BE590700C12AFC /* TTTDataTransformer.m */,
+				F8B725E718BE590700C12AFC /* TTTDataTransformers.h */,
+				F8B725E818BE590700C12AFC /* TTTDataTransformers.m */,
 				F818951A164DBB0600D19548 /* NSValueTransformer+TransformerKit.h */,
 				F818951B164DBB0600D19548 /* NSValueTransformer+TransformerKit.m */,
 			);
@@ -225,6 +225,7 @@
 		F8AC4E03164DBA440083D561 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mattt Thompson";
 				TargetAttributes = {
@@ -262,7 +263,7 @@
 				43FC1FDB1A8915850047234F /* TTTStringTransformers.m in Sources */,
 				43FC1FDC1A8915850047234F /* TTTCryptographyTransformers.m in Sources */,
 				43FC1FE61A89168D0047234F /* main.swift in Sources */,
-				43FC1FDD1A8915850047234F /* TTTDataTransformer.m in Sources */,
+				43FC1FDD1A8915850047234F /* TTTDataTransformers.m in Sources */,
 				43FC1FDE1A8915850047234F /* NSValueTransformer+TransformerKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8B725E918BE590700C12AFC /* TTTDataTransformer.m in Sources */,
+				F8B725E918BE590700C12AFC /* TTTDataTransformers.m in Sources */,
 				F818950F164DBA9900D19548 /* main.m in Sources */,
 				F818951F164DBB0600D19548 /* NSValueTransformer+TransformerKit.m in Sources */,
 				F8189520164DBB0600D19548 /* TTTStringTransformers.m in Sources */,
@@ -434,6 +435,7 @@
 				43FC1FD71A89150B0047234F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8AC4E06164DBA440083D561 /* Build configuration list for PBXProject "TransformerKit Example" */ = {
 			isa = XCConfigurationList;

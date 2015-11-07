@@ -1,4 +1,4 @@
-// TTTDataTransformer.m
+// TTTDataTransformers.m
 //
 // Copyright (c) 2014 Mattt Thompson (http://mattt.me)
 //
@@ -22,7 +22,7 @@
 
 #import <Security/Security.h>
 
-#import "TTTDataTransformer.h"
+#import "TTTDataTransformers.h"
 
 #import "NSValueTransformer+TransformerKit.h"
 
@@ -230,7 +230,7 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
     return [output subdataWithRange:NSMakeRange(0, outputLength)];
 }
 
-@implementation TTTDataTransformer
+@implementation TTTDataTransformers
 
 + (void)load {
     @autoreleasepool {

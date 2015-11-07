@@ -1,4 +1,4 @@
-// TTTDataTransformer.h
+// TTTDataTransformers.h
 //
 // Copyright (c) 2014 Mattt Thompson (http://mattt.me)
 //
@@ -43,6 +43,6 @@ extern NSString * const TTTHexadecimalStringEncodedDataTransformerName;
 extern NSString * const TTTAscii85EncodedDataTransformerName;
 
 
-@interface TTTDataTransformer : NSValueTransformer
+@interface TTTDataTransformers : NSValueTransformer
 
 @end
