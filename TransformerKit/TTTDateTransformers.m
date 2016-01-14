@@ -71,6 +71,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
     } else if (length == 29 && source[26] == ':') {
         memcpy(destination, source, 26);
         memcpy(destination + 26, source + 27, 2);
+        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0f;
     } else {
         memcpy(destination, source, MIN(length, ISO_8601_MAX_LENGTH - 1));
     }
