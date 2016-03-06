@@ -1,0 +1,5 @@
+framework module TransformerKit {
+    umbrella header "TransformerKit.h"
+    export *
+    module * { export * }
+}
