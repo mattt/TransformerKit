@@ -26,6 +26,8 @@
 		BED5C6E81C8CF9E000530969 /* TTTJSONTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C01C8CF94E00530969 /* TTTJSONTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6E91C8CF9E000530969 /* TTTStringTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C21C8CF94E00530969 /* TTTStringTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6EA1C8CF9E000530969 /* TTTCryptographyTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C8A71C8DFB6C00530969 /* TTTCryptographyTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C8A81C8DFB7000530969 /* TTTDataTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,8 @@
 				BED5C6D01C8CF94E00530969 /* TTTJSONTransformer.h in Headers */,
 				BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */,
 				BED5C6CC1C8CF94E00530969 /* TTTDateTransformers.h in Headers */,
+				BED5C8A81C8DFB7000530969 /* TTTDataTransformer.h in Headers */,
+				BED5C8A71C8DFB6C00530969 /* TTTCryptographyTransformers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
