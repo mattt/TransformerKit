@@ -10,8 +10,6 @@
 		BED5C6C71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6C81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6B81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m */; };
 		BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B91C8CF94E00530969 /* TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BED5C6CA1C8CF94E00530969 /* TTTDataTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BED5C6CB1C8CF94E00530969 /* TTTDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6BB1C8CF94E00530969 /* TTTDataTransformer.m */; };
 		BED5C6CC1C8CF94E00530969 /* TTTDateTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BC1C8CF94E00530969 /* TTTDateTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6CD1C8CF94E00530969 /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6BD1C8CF94E00530969 /* TTTDateTransformers.m */; };
 		BED5C6CE1C8CF94E00530969 /* TTTImageTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BE1C8CF94E00530969 /* TTTImageTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,8 +18,6 @@
 		BED5C6D11C8CF94E00530969 /* TTTJSONTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6C11C8CF94E00530969 /* TTTJSONTransformer.m */; };
 		BED5C6D21C8CF94E00530969 /* TTTStringTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C21C8CF94E00530969 /* TTTStringTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6D31C8CF94E00530969 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6C31C8CF94E00530969 /* TTTStringTransformers.m */; };
-		BED5C6D41C8CF94E00530969 /* TTTCryptographyTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BED5C6D51C8CF94E00530969 /* TTTCryptographyTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6C51C8CF94E00530969 /* TTTCryptographyTransformers.m */; };
 		BED5C6E31C8CF9E000530969 /* NSValueTransformer+TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6E41C8CF9E000530969 /* TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B91C8CF94E00530969 /* TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BED5C6E51C8CF9E000530969 /* TTTDataTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -127,9 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BED5C6D21C8CF94E00530969 /* TTTStringTransformers.h in Headers */,
-				BED5C6D41C8CF94E00530969 /* TTTCryptographyTransformers.h in Headers */,
 				BED5C6CE1C8CF94E00530969 /* TTTImageTransformers.h in Headers */,
-				BED5C6CA1C8CF94E00530969 /* TTTDataTransformer.h in Headers */,
 				BED5C6C71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h in Headers */,
 				BED5C6D01C8CF94E00530969 /* TTTJSONTransformer.h in Headers */,
 				BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */,
@@ -251,11 +245,9 @@
 			files = (
 				BED5C6D11C8CF94E00530969 /* TTTJSONTransformer.m in Sources */,
 				BED5C6D31C8CF94E00530969 /* TTTStringTransformers.m in Sources */,
-				BED5C6CB1C8CF94E00530969 /* TTTDataTransformer.m in Sources */,
 				BED5C6CD1C8CF94E00530969 /* TTTDateTransformers.m in Sources */,
 				BED5C6CF1C8CF94E00530969 /* TTTImageTransformers.m in Sources */,
 				BED5C6C81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m in Sources */,
-				BED5C6D51C8CF94E00530969 /* TTTCryptographyTransformers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
