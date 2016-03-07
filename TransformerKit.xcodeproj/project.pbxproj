@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BED5C6C71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6C81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6B81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m */; };
+		BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B91C8CF94E00530969 /* TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6CC1C8CF94E00530969 /* TTTDateTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BC1C8CF94E00530969 /* TTTDateTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6CD1C8CF94E00530969 /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6BD1C8CF94E00530969 /* TTTDateTransformers.m */; };
+		BED5C6CE1C8CF94E00530969 /* TTTImageTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BE1C8CF94E00530969 /* TTTImageTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6CF1C8CF94E00530969 /* TTTImageTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6BF1C8CF94E00530969 /* TTTImageTransformers.m */; };
+		BED5C6D01C8CF94E00530969 /* TTTJSONTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C01C8CF94E00530969 /* TTTJSONTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6D11C8CF94E00530969 /* TTTJSONTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6C11C8CF94E00530969 /* TTTJSONTransformer.m */; };
+		BED5C6D21C8CF94E00530969 /* TTTStringTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C21C8CF94E00530969 /* TTTStringTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6D31C8CF94E00530969 /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6C31C8CF94E00530969 /* TTTStringTransformers.m */; };
+		BED5C6E31C8CF9E000530969 /* NSValueTransformer+TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6E41C8CF9E000530969 /* TransformerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6B91C8CF94E00530969 /* TransformerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6E51C8CF9E000530969 /* TTTDataTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6E61C8CF9E000530969 /* TTTDateTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BC1C8CF94E00530969 /* TTTDateTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6E71C8CF9E000530969 /* TTTImageTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BE1C8CF94E00530969 /* TTTImageTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6E81C8CF9E000530969 /* TTTJSONTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C01C8CF94E00530969 /* TTTJSONTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6E91C8CF9E000530969 /* TTTStringTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C21C8CF94E00530969 /* TTTStringTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C6EA1C8CF9E000530969 /* TTTCryptographyTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C8A71C8DFB6C00530969 /* TTTCryptographyTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BED5C8A81C8DFB7000530969 /* TTTDataTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BED5C6AE1C8CF80E00530969 /* TransformerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TransformerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED5C6B21C8CF80E00530969 /* Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Framework; sourceTree = "<group>"; };
+		BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+TransformerKit.h"; sourceTree = "<group>"; };
+		BED5C6B81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+TransformerKit.m"; sourceTree = "<group>"; };
+		BED5C6B91C8CF94E00530969 /* TransformerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerKit.h; sourceTree = "<group>"; };
+		BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDataTransformer.h; sourceTree = "<group>"; };
+		BED5C6BB1C8CF94E00530969 /* TTTDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDataTransformer.m; sourceTree = "<group>"; };
+		BED5C6BC1C8CF94E00530969 /* TTTDateTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTDateTransformers.h; sourceTree = "<group>"; };
+		BED5C6BD1C8CF94E00530969 /* TTTDateTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTDateTransformers.m; sourceTree = "<group>"; };
+		BED5C6BE1C8CF94E00530969 /* TTTImageTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTImageTransformers.h; sourceTree = "<group>"; };
+		BED5C6BF1C8CF94E00530969 /* TTTImageTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTImageTransformers.m; sourceTree = "<group>"; };
+		BED5C6C01C8CF94E00530969 /* TTTJSONTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTJSONTransformer.h; sourceTree = "<group>"; };
+		BED5C6C11C8CF94E00530969 /* TTTJSONTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTJSONTransformer.m; sourceTree = "<group>"; };
+		BED5C6C21C8CF94E00530969 /* TTTStringTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTStringTransformers.h; sourceTree = "<group>"; };
+		BED5C6C31C8CF94E00530969 /* TTTStringTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTStringTransformers.m; sourceTree = "<group>"; };
+		BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTCryptographyTransformers.h; sourceTree = "<group>"; };
+		BED5C6C51C8CF94E00530969 /* TTTCryptographyTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTCryptographyTransformers.m; sourceTree = "<group>"; };
+		BED5C6DB1C8CF97400530969 /* TransformerKit-OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "TransformerKit-OSX.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BED5C6AA1C8CF80E00530969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED5C6D71C8CF97400530969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE13377A1C8CF76800117156 = {
+			isa = PBXGroup;
+			children = (
+				BED5C6C61C8CF94E00530969 /* TransformerKit */,
+				BED5C6B61C8CF8C300530969 /* Supporting Files */,
+				BE1337841C8CF76900117156 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE1337841C8CF76900117156 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BED5C6AE1C8CF80E00530969 /* TransformerKit.framework */,
+				BED5C6DB1C8CF97400530969 /* TransformerKit-OSX.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BED5C6B61C8CF8C300530969 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BED5C6B21C8CF80E00530969 /* Framework */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BED5C6C61C8CF94E00530969 /* TransformerKit */ = {
+			isa = PBXGroup;
+			children = (
+				BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */,
+				BED5C6B81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m */,
+				BED5C6B91C8CF94E00530969 /* TransformerKit.h */,
+				BED5C6BA1C8CF94E00530969 /* TTTDataTransformer.h */,
+				BED5C6BB1C8CF94E00530969 /* TTTDataTransformer.m */,
+				BED5C6BC1C8CF94E00530969 /* TTTDateTransformers.h */,
+				BED5C6BD1C8CF94E00530969 /* TTTDateTransformers.m */,
+				BED5C6BE1C8CF94E00530969 /* TTTImageTransformers.h */,
+				BED5C6BF1C8CF94E00530969 /* TTTImageTransformers.m */,
+				BED5C6C01C8CF94E00530969 /* TTTJSONTransformer.h */,
+				BED5C6C11C8CF94E00530969 /* TTTJSONTransformer.m */,
+				BED5C6C21C8CF94E00530969 /* TTTStringTransformers.h */,
+				BED5C6C31C8CF94E00530969 /* TTTStringTransformers.m */,
+				BED5C6C41C8CF94E00530969 /* TTTCryptographyTransformers.h */,
+				BED5C6C51C8CF94E00530969 /* TTTCryptographyTransformers.m */,
+			);
+			path = TransformerKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BED5C6AB1C8CF80E00530969 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED5C6D21C8CF94E00530969 /* TTTStringTransformers.h in Headers */,
+				BED5C6CE1C8CF94E00530969 /* TTTImageTransformers.h in Headers */,
+				BED5C6C71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h in Headers */,
+				BED5C6D01C8CF94E00530969 /* TTTJSONTransformer.h in Headers */,
+				BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */,
+				BED5C6CC1C8CF94E00530969 /* TTTDateTransformers.h in Headers */,
+				BED5C8A81C8DFB7000530969 /* TTTDataTransformer.h in Headers */,
+				BED5C8A71C8DFB6C00530969 /* TTTCryptographyTransformers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED5C6D81C8CF97400530969 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED5C6E31C8CF9E000530969 /* NSValueTransformer+TransformerKit.h in Headers */,
+				BED5C6E41C8CF9E000530969 /* TransformerKit.h in Headers */,
+				BED5C6E51C8CF9E000530969 /* TTTDataTransformer.h in Headers */,
+				BED5C6E61C8CF9E000530969 /* TTTDateTransformers.h in Headers */,
+				BED5C6E71C8CF9E000530969 /* TTTImageTransformers.h in Headers */,
+				BED5C6E81C8CF9E000530969 /* TTTJSONTransformer.h in Headers */,
+				BED5C6E91C8CF9E000530969 /* TTTStringTransformers.h in Headers */,
+				BED5C6EA1C8CF9E000530969 /* TTTCryptographyTransformers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BED5C6AD1C8CF80E00530969 /* TransformerKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BED5C6B31C8CF80E00530969 /* Build configuration list for PBXNativeTarget "TransformerKit" */;
+			buildPhases = (
+				BED5C6A91C8CF80E00530969 /* Sources */,
+				BED5C6AA1C8CF80E00530969 /* Frameworks */,
+				BED5C6AB1C8CF80E00530969 /* Headers */,
+				BED5C6AC1C8CF80E00530969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TransformerKit;
+			productName = TransformerKit;
+			productReference = BED5C6AE1C8CF80E00530969 /* TransformerKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BED5C6DA1C8CF97400530969 /* TransformerKit-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BED5C6E01C8CF97400530969 /* Build configuration list for PBXNativeTarget "TransformerKit-OSX" */;
+			buildPhases = (
+				BED5C6D61C8CF97400530969 /* Sources */,
+				BED5C6D71C8CF97400530969 /* Frameworks */,
+				BED5C6D81C8CF97400530969 /* Headers */,
+				BED5C6D91C8CF97400530969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TransformerKit-OSX";
+			productName = "TransformerKit-OSX";
+			productReference = BED5C6DB1C8CF97400530969 /* TransformerKit-OSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE13377B1C8CF76800117156 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Mattt;
+				TargetAttributes = {
+					BED5C6AD1C8CF80E00530969 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					BED5C6DA1C8CF97400530969 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = BE13377E1C8CF76800117156 /* Build configuration list for PBXProject "TransformerKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE13377A1C8CF76800117156;
+			productRefGroup = BE1337841C8CF76900117156 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BED5C6AD1C8CF80E00530969 /* TransformerKit */,
+				BED5C6DA1C8CF97400530969 /* TransformerKit-OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BED5C6AC1C8CF80E00530969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED5C6D91C8CF97400530969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BED5C6A91C8CF80E00530969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED5C6D11C8CF94E00530969 /* TTTJSONTransformer.m in Sources */,
+				BED5C6D31C8CF94E00530969 /* TTTStringTransformers.m in Sources */,
+				BED5C6CD1C8CF94E00530969 /* TTTDateTransformers.m in Sources */,
+				BED5C6CF1C8CF94E00530969 /* TTTImageTransformers.m in Sources */,
+				BED5C6C81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED5C6D61C8CF97400530969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BE1337981C8CF76900117156 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BE1337991C8CF76900117156 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BED5C6B41C8CF80E00530969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(PROJECT_DIR)/Framework/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattt.TransformerKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BED5C6B51C8CF80E00530969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(PROJECT_DIR)/Framework/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattt.TransformerKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BED5C6E11C8CF97400530969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "$(PROJECT_DIR)/Framework/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mattt.TransformerKit-OSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BED5C6E21C8CF97400530969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "$(PROJECT_DIR)/Framework/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mattt.TransformerKit-OSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE13377E1C8CF76800117156 /* Build configuration list for PBXProject "TransformerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE1337981C8CF76900117156 /* Debug */,
+				BE1337991C8CF76900117156 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BED5C6B31C8CF80E00530969 /* Build configuration list for PBXNativeTarget "TransformerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BED5C6B41C8CF80E00530969 /* Debug */,
+				BED5C6B51C8CF80E00530969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BED5C6E01C8CF97400530969 /* Build configuration list for PBXNativeTarget "TransformerKit-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BED5C6E11C8CF97400530969 /* Debug */,
+				BED5C6E21C8CF97400530969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE13377B1C8CF76800117156 /* Project object */;
+}
