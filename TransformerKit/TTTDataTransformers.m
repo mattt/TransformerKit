@@ -1,6 +1,6 @@
 // TTTDataTransformers.m
 //
-// Copyright (c) 2014 Mattt Thompson (http://mattt.me)
+// Copyright (c) 2012 - 2018 Mattt (https://mat.tt)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -221,12 +221,12 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
         if (remainder > 1) {
             x += 0xffffff >> (remainder - 2) * 8;
         }
-        
+
         x = CFSwapInt32HostToBig(x);
         [output replaceBytesInRange:NSMakeRange((numberOfBlocks * 4), 4) withBytes:&x];
         outputLength += (remainder - 1);
     }
-    
+
     return [output subdataWithRange:NSMakeRange(0, outputLength)];
 }
 

@@ -1,6 +1,6 @@
 // TTTCryptographyTransformers.h
 //
-// Copyright (c) 2014 Mattt Thompson (http://mattt.me)
+// Copyright (c) 2012 - 2018 Mattt (https://mat.tt)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,17 +24,17 @@
 #import <Foundation/Foundation.h>
 
 /**
- 
+
  */
 extern NSString * const TTTMD5TransformerName;
 
 /**
- 
+
  */
 extern NSString * const TTTSHA1TransformerName;
 
 /**
- 
+
  */
 extern NSString * const TTTSHA256TransformerName;
 
@@ -43,7 +43,7 @@ extern NSString * const TTTSHA256TransformerName;
 typedef NSUInteger TTTDigestAlgorithm;
 
 /**
- 
+
  */
 typedef NS_ENUM(TTTDigestAlgorithm, TTTMessageDigestAlgorithm) {
     TTTMD2 = 2,
@@ -52,7 +52,7 @@ typedef NS_ENUM(TTTDigestAlgorithm, TTTMessageDigestAlgorithm) {
 };
 
 /**
- 
+
  */
 typedef NS_ENUM(TTTDigestAlgorithm, TTTSecureHashAlgorithm) {
     TTTSHA1 = 1,
@@ -65,34 +65,34 @@ typedef NS_ENUM(TTTDigestAlgorithm, TTTSecureHashAlgorithm) {
 ///
 
 /**
- 
+
  */
 extern NSData * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string);
 
 /**
- 
+
  */
 extern NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data);
 
 /**
- 
+
  */
 extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data);
 
 /**
- 
+
  */
 extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data);
 
 #pragma mark -
 
 /**
- 
+
  */
 extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDigestAlgorithm algorithm);
 
 /**
- 
+
  */
 @interface TTTCryptographyTransformers : NSObject
 
@@ -101,7 +101,7 @@ extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDig
 #pragma mark -
 
 /**
- 
+
  */
 @interface NSValueTransformer (TTTCryptography)
 
