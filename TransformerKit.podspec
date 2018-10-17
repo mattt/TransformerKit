@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Core' do |ss|
-    ss.source_files = 'Sources/NSValueTransformer+TransformerKit.{h,m}'
+    ss.source_files = 'Sources/NSValueTransformer+TransformerKit.{h,m}', 'Sources/NSValueTransformerName.h'
   end
 
   s.subspec 'Cryptography' do |ss|
