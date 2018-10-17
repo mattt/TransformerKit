@@ -7,4 +7,7 @@
    <FileRef
       location = "group:TransformerKit.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Example/TransformerKit Example.xcodeproj">
+   </FileRef>
 </Workspace>

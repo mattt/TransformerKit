@@ -43,16 +43,6 @@
 		F8F8862C2176D37F00BB644C /* TTTCryptographyTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = BED5C6C51C8CF94E00530969 /* TTTCryptographyTransformers.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F8E344EA2176D1A400264D73 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8E344E62176D1A400264D73 /* TransformerKit Example.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8E344DC2176D16400264D73;
-			remoteInfo = "TransformerKit Example";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		BED5C6AE1C8CF80E00530969 /* TransformerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TransformerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED5C6B21C8CF80E00530969 /* Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Framework; sourceTree = "<group>"; };
@@ -73,7 +63,6 @@
 		BED5C6C51C8CF94E00530969 /* TTTCryptographyTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTCryptographyTransformers.m; sourceTree = "<group>"; };
 		BED5C6DB1C8CF97400530969 /* TransformerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TransformerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E344CD2176CD6500264D73 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
-		F8E344E62176D1A400264D73 /* TransformerKit Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "TransformerKit Example.xcodeproj"; path = "Example/TransformerKit Example.xcodeproj"; sourceTree = "<group>"; };
 		F8F886202176D2A300BB644C /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
 		F8F886242176D30000BB644C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		F8F886262176D30400BB644C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -106,7 +95,6 @@
 		BE13377A1C8CF76800117156 = {
 			isa = PBXGroup;
 			children = (
-				F8E344E62176D1A400264D73 /* TransformerKit Example.xcodeproj */,
 				BED5C6C61C8CF94E00530969 /* Sources */,
 				BED5C6B61C8CF8C300530969 /* Supporting Files */,
 				BE1337841C8CF76900117156 /* Products */,
@@ -164,14 +152,6 @@
 				F8E344CD2176CD6500264D73 /* libcommonCrypto.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F8E344E72176D1A400264D73 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F8E344EB2176D1A400264D73 /* TransformerKit Example */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,12 +255,6 @@
 			mainGroup = BE13377A1C8CF76800117156;
 			productRefGroup = BE1337841C8CF76900117156 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F8E344E72176D1A400264D73 /* Products */;
-					ProjectRef = F8E344E62176D1A400264D73 /* TransformerKit Example.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				BED5C6DA1C8CF97400530969 /* TransformerKit macOS */,
@@ -288,16 +262,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		F8E344EB2176D1A400264D73 /* TransformerKit Example */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "TransformerKit Example";
-			remoteRef = F8E344EA2176D1A400264D73 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BED5C6AC1C8CF80E00530969 /* Resources */ = {
