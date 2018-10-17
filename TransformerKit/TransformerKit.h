@@ -28,5 +28,5 @@
     #import "TTTStringTransformers.h"
     #import "TTTJSONTransformer.h"
     #import "TTTCryptographyTransformers.h"
-    #import "TTTDataTransformer.h"
+    #import "TTTDataTransformers.h"
 #endif
