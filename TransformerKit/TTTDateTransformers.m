@@ -37,6 +37,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
         _iso8601DateFormatter = [[NSDateFormatter alloc] init];
         [_iso8601DateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         [_iso8601DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+        [_iso8601DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     });
 
     return [_iso8601DateFormatter stringFromDate:date];
@@ -93,6 +94,7 @@ static NSString * TTTRFC2822TimestampFromDate(NSDate *date) {
         _rfc2822DateFormatter = [[NSDateFormatter alloc] init];
         [_rfc2822DateFormatter setDateFormat:@"EEE, d MMM yyyy HH:mm:ss zzz"];
         [_rfc2822DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+        [_rfc2822DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     });
 
     return [_rfc2822DateFormatter stringFromDate:date];
