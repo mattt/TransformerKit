@@ -60,21 +60,21 @@ static NSDate * _Nullable TTTDateFromISO8601Timestamp(NSString *timestamp) {
         return nil;
     }
 
-    double milliseconds = 0.0f;
+    double milliseconds = 0.0;
     if (length == 20 && source[length - 1] == 'Z') {
         memcpy(destination, source, length - 1);
         strncpy(destination + length - 1, "+0000\0", 6);
     } else if (length == 24 && source[length - 5] == '.' && source[length - 1] == 'Z') {
         memcpy(destination, source, length - 5);
         strncpy(destination + length - 5, "+0000\0", 6);
-        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0f;
+        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0;
     } else if (length == 25 && source[22] == ':') {
         memcpy(destination, source, 22);
         memcpy(destination + 22, source + 23, 2);
     } else if (length == 29 && source[26] == ':') {
         memcpy(destination, source, 26);
         memcpy(destination + 26, source + 27, 2);
-        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0f;
+        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0;
     } else {
         memcpy(destination, source, MIN(length, ISO_8601_MAX_LENGTH - 1));
     }
@@ -138,7 +138,6 @@ static inline const char * _Nullable TTTFormatForRFC2822Timestamp(const char *ti
             } else {
                 return "%a %d %b %Y %H:%M:%S %Z";
             }
-            break;
         case 30:
         case 31:
             if (timestamp[3] == ',') {
@@ -146,7 +145,6 @@ static inline const char * _Nullable TTTFormatForRFC2822Timestamp(const char *ti
             } else {
                 return "%a %d %b %Y %H:%M:%S %z";
             }
-            break;
         default:
             break;
     }
