@@ -22,8 +22,8 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
-#import <Availability.h>
-#import <objc/runtime.h>
+@import Darwin.Availability;
+@import ObjectiveC.runtime;
 
 NS_ASSUME_NONNULL_BEGIN
 
