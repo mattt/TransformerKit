@@ -13,38 +13,38 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Core' do |ss|
-    ss.source_files = 'TransformerKit/NSValueTransformer+TransformerKit.{h,m}'
+    ss.source_files = 'Sources/NSValueTransformer+TransformerKit.{h,m}'
   end
 
   s.subspec 'Cryptography' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'TransformerKit/TTTCryptographyTransformers.{h,m}'
+    ss.source_files = 'Sources/TTTCryptographyTransformers.{h,m}'
     ss.frameworks = "Security"
   end
 
   s.subspec 'Data' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'TransformerKit/TTTDataTransformers.{h,m}'
+    ss.source_files = 'Sources/TTTDataTransformers.{h,m}'
     ss.frameworks = "Security"
   end
 
   s.subspec 'Date' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'TransformerKit/TTTDateTransformers.{h,m}'
+    ss.source_files = 'Sources/TTTDateTransformers.{h,m}'
   end
 
   s.subspec 'JSON' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'TransformerKit/TTTJSONTransformer.{h,m}'
+    ss.source_files = 'Sources/TTTJSONTransformer.{h,m}'
   end
 
   s.subspec 'Image' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'TransformerKit/TTTImageTransformers.{h,m}'
+    ss.source_files = 'Sources/TTTImageTransformers.{h,m}'
   end
 
   s.subspec 'String' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'TransformerKit/TTTStringTransformers.{h,m}'
+    ss.source_files = 'Sources/TTTStringTransformers.{h,m}'
   end
 end
