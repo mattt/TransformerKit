@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "NSValueTransformerName.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  @warning Because `time.h` represents timestamps as 32-bit integers, times before 00:00::00 UTC on Thursday, January 1, 1970 and after 03:14:07 UTC on Tuesday, 19 January 2038 cannot be represented.
  */
@@ -36,3 +38,5 @@ extern NSValueTransformerName const TTTRFC2822DateTransformerName NS_SWIFT_NAME(
 @interface TTTDateTransformers : NSObject
 
 @end
+
+NS_ASSUME_NONNULL_END

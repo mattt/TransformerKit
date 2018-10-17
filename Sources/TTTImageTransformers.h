@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "NSValueTransformerName.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 #if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
 
 #define kTTTJPEGRepresentationCompressionQuality 0.75
@@ -54,3 +56,5 @@ extern NSValueTransformerName const TTTTIFFRepresentationImageTransformerName NS
 @end
 
 #endif
+
+NS_ASSUME_NONNULL_END

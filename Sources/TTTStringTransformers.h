@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "NSValueTransformerName.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  
  */
@@ -76,8 +78,10 @@ extern NSValueTransformerName const TTTTransliterateStringToLatinTransformerName
 /**
  
  */
-extern NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform) NS_SWIFT_NAME(StringTransformerForICUTransform(_:));
+extern NSValueTransformer * _Nullable TTTStringTransformerForICUTransform(NSString *transform) NS_SWIFT_NAME(StringTransformerForICUTransform(_:));
 
 @interface TTTStringTransformers : NSObject
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "NSValueTransformerName.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSValueTransformerName const TTTBase2EncodedDataTransformerName NS_SWIFT_NAME(base2EncodedDataTransformerName);
 
 extern NSValueTransformerName const TTTBase16EncodedDataTransformerName NS_SWIFT_NAME(base16EncodedDataTransformerName);
@@ -47,3 +49,5 @@ extern NSValueTransformerName const TTTAscii85EncodedDataTransformerName NS_SWIF
 @interface TTTDataTransformers : NSValueTransformer
 
 @end
+
+NS_ASSUME_NONNULL_END

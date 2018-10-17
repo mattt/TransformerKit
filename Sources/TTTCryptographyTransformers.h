@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "NSValueTransformerName.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
 
  */
@@ -111,3 +113,5 @@ extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDig
 + (void)registerValueTransformerForDigestAlgorithm:(TTTDigestAlgorithm)algorithm NS_SWIFT_NAME(registerValueTransformer(for:));
 
 @end
+
+NS_ASSUME_NONNULL_END

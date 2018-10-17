@@ -22,6 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSValueTransformer (TransformerKit)
 
 + (BOOL)registerValueTransformerWithName:(NSString *)name
@@ -32,7 +34,9 @@ NS_SWIFT_NAME(registerValueTransformer(named:producing:with:));
 + (BOOL)registerValueTransformerWithName:(NSString *)name
                    transformedValueClass:(Class)transformedValueClass
       returningTransformedValueWithBlock:(id (^)(id value))transformedValueBlock
-  allowingReverseTransformationWithBlock:(id (^)(id value))reverseTransformedValueBlock
+  allowingReverseTransformationWithBlock:(nullable id (^)(id value))reverseTransformedValueBlock
 NS_SWIFT_NAME(registerValueTransformer(named:producing:forward:reverse:));;
 
 @end
+
+NS_ASSUME_NONNULL_END

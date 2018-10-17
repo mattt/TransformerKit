@@ -23,6 +23,8 @@
 #import "TTTJSONTransformer.h"
 #import "NSValueTransformer+TransformerKit.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 NSValueTransformerName const TTTJSONTransformerName = @"TTTJSONTransformerName";
 
 @implementation TTTJSONTransformer
@@ -40,14 +42,14 @@ NSValueTransformerName const TTTJSONTransformerName = @"TTTJSONTransformerName";
     return [NSData class];
 }
 
-- (id)transformedValue:(id)value {
+- (nullable id)transformedValue:(nullable id)value {
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:value options:self.writingOptions error:&error];
     
     return data;
 }
 
-- (id)reverseTransformedValue:(id)value {
+- (nullable id)reverseTransformedValue:(nullable id)value {
     id JSON = nil;
     NSError *error = nil;
     if ([value isKindOfClass:[NSString class]]) {
@@ -62,3 +64,5 @@ NSValueTransformerName const TTTJSONTransformerName = @"TTTJSONTransformerName";
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

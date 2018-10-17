@@ -24,6 +24,8 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 NSValueTransformerName const TTTCapitalizedStringTransformerName = @"TTTCapitalizedStringTransformerName";
 NSValueTransformerName const TTTUppercaseStringTransformerName = @"TTTUppercaseStringTransformer";
 NSValueTransformerName const TTTLowercaseStringTransformerName = @"TTTLowercaseStringTransformer";
@@ -73,7 +75,7 @@ static NSString * TTTReversedStringWithString(NSString *string) {
     return reversedString;
 }
 
-NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform) {
+NSValueTransformer * _Nullable TTTStringTransformerForICUTransform(NSString *transform) {
     NSString *transformerName = [NSString stringWithFormat:@"TTTStringICUTransformer(%@)", transform];
     if (![[NSValueTransformer valueTransformerNames] containsObject:transformerName]) {
         BOOL success = [NSValueTransformer registerValueTransformerWithName:transformerName transformedValueClass:[NSString class] returningTransformedValueWithBlock:^id(id value) {
@@ -190,3 +192,5 @@ NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform) {
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "NSValueTransformerName.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  
  */
@@ -44,3 +46,5 @@ extern NSValueTransformerName const TTTJSONTransformerName NS_SWIFT_NAME(jsonTra
 @property (nonatomic, assign) NSJSONWritingOptions writingOptions;
 
 @end
+
+NS_ASSUME_NONNULL_END

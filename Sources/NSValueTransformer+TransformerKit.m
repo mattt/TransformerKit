@@ -25,6 +25,8 @@
 #import <Availability.h>
 #import <objc/runtime.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation NSValueTransformer (TransformerKit)
 
 + (BOOL)registerValueTransformerWithName:(NSString *)name
@@ -37,7 +39,7 @@
 + (BOOL)registerValueTransformerWithName:(NSString *)name
                    transformedValueClass:(Class)transformedValueClass
       returningTransformedValueWithBlock:(id (^)(id value))transformedValueBlock
-  allowingReverseTransformationWithBlock:(id (^)(id value))reverseTransformedValueBlock
+  allowingReverseTransformationWithBlock:(nullable id (^)(id value))reverseTransformedValueBlock
 {
     NSParameterAssert(name);
     NSParameterAssert(transformedValueClass);
@@ -104,3 +106,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

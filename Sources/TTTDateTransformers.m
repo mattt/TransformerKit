@@ -27,6 +27,8 @@
 #include <time.h>
 #include <xlocale.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 NSValueTransformerName const TTTISO8601DateTransformerName = @"TTTISO8601DateTransformerName";
 NSValueTransformerName const TTTRFC2822DateTransformerName = @"TTTRFC2822DateTransformerName";
 
@@ -43,7 +45,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     return [_iso8601DateFormatter stringFromDate:date];
 }
 
-static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
+static NSDate * _Nullable TTTDateFromISO8601Timestamp(NSString *timestamp) {
     if (!timestamp) {
         return nil;
     }
@@ -101,7 +103,7 @@ static NSString * TTTRFC2822TimestampFromDate(NSDate *date) {
     return [_rfc2822DateFormatter stringFromDate:date];
 }
 
-static inline const char * TTTFormatForRFC2822Timestamp(const char *timestamp) {
+static inline const char * _Nullable TTTFormatForRFC2822Timestamp(const char *timestamp) {
     NSCParameterAssert(timestamp);
 
     size_t length = strlen(timestamp);
@@ -152,7 +154,7 @@ static inline const char * TTTFormatForRFC2822Timestamp(const char *timestamp) {
     return NULL;
 }
 
-static NSDate * TTTDateFromRFC2822Timestamp(NSString *timestamp) {
+static NSDate * _Nullable TTTDateFromRFC2822Timestamp(NSString *timestamp) {
     if (!timestamp) {
         return nil;
     }
@@ -192,3 +194,5 @@ static NSDate * TTTDateFromRFC2822Timestamp(NSString *timestamp) {
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -26,6 +26,8 @@
 
 #import <CommonCrypto/CommonCrypto.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 NSValueTransformerName TTTMD2TransformerName = @"TTTMD2Transformer";
 NSValueTransformerName TTTMD4TransformerName = @"TTTMD4Transformer";
 NSValueTransformerName TTTMD5TransformerName = @"TTTMD5Transformer";
@@ -181,3 +183,5 @@ __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(T
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

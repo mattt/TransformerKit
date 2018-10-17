@@ -26,6 +26,8 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 NSValueTransformerName const TTTBase2EncodedDataTransformerName = @"TTTBase2EncodedDataTransformer";
 
 NSValueTransformerName const TTTBase16EncodedDataTransformerName = @"TTTBase16EncodedDataTransformer";
@@ -160,7 +162,7 @@ static NSString * TTTBase85EncodedStringFromData(NSData *data) {
     }
 
     if (remainder > 0) {
-        uint32_t x = CFSwapInt32BigToHost(*(uint32_t*)([[data subdataWithRange:NSMakeRange(numberOfBlocks * 4, remainder)] bytes]));
+        uint32_t x = CFSwapInt32BigToHost(*(uint32_t *)([[data subdataWithRange:NSMakeRange(numberOfBlocks * 4, remainder)] bytes]));
         for (NSUInteger j = 0; j < 5; j++) {
             outputBuffer[outputLength + (4 - j)] = _b85encode[x % 85];
             x /= 85;
@@ -261,3 +263,5 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

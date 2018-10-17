@@ -24,6 +24,8 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 #if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
 
 NSValueTransformerName const TTTPNGRepresentationImageTransformerName = @"TTTPNGRepresentationImageTransformer";
@@ -102,3 +104,5 @@ static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapIma
 @end
 
 #endif
+
+NS_ASSUME_NONNULL_END
