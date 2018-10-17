@@ -35,7 +35,7 @@ static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _iso8601DateFormatter = [[NSDateFormatter alloc] init];
-        [_iso8601DateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        [_iso8601DateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
         [_iso8601DateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
         [_iso8601DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     });
@@ -72,6 +72,7 @@ static NSDate * TTTDateFromISO8601Timestamp(NSString *timestamp) {
     } else if (length == 29 && source[26] == ':') {
         memcpy(destination, source, 26);
         memcpy(destination + 26, source + 27, 2);
+        milliseconds = [[timestamp substringWithRange:NSMakeRange(20, 3)] doubleValue] / 1000.0f;
     } else {
         memcpy(destination, source, MIN(length, ISO_8601_MAX_LENGTH - 1));
     }
