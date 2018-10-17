@@ -38,13 +38,9 @@ NSValueTransformerName const TTTBase64EncodedDataTransformerName = @"TTTBase64En
 
 NSValueTransformerName const TTTBase85EncodedDataTransformerName = @"TTTBase85EncodedDataTransformer";
 
-#define TTTBinaryStringEncodedDataTransformerName TTTBase2EncodedDataTransformerName
-#define TTTHexadecimalStringEncodedDataTransformerName TTTBase16EncodedDataTransformerName
-#define TTTAscii85EncodedDataTransformerName TTTBase85EncodedDataTransformerName
-
 #pragma mark -
 
-const char _base16Alphabet[16] = "0123456789ABCDEF";
+static const char _base16Alphabet[16] = "0123456789ABCDEF";
 
 static NSString * TTTBase16EncodedStringFromData(NSData *data) {
     const uint8_t *inputBuffer = [data bytes];
@@ -53,10 +49,10 @@ static NSString * TTTBase16EncodedStringFromData(NSData *data) {
     NSMutableString *mutableString = [NSMutableString stringWithCapacity:length  * 2];
 
     for (NSUInteger i = 0; i < length; i++) {
-        char characters[2] = {};
+        char characters[2];
 		characters[0] = _base16Alphabet[(*(inputBuffer + i) & /* 0b11110000 */ 240) >> 4];
 		characters[1] = _base16Alphabet[(*(inputBuffer + i) & /* 0b00001111 */ 15)  >> 0];
-		[mutableString appendString:[[NSString alloc] initWithBytes:characters length:2 encoding:NSASCIIStringEncoding]];
+		[mutableString appendString:(NSString * _Nonnull)[[NSString alloc] initWithBytes:characters length:2 encoding:NSASCIIStringEncoding]];
     }
 
 	return mutableString;
@@ -72,7 +68,7 @@ static NSData * TTTDataFromBase16EncodedString(NSString *string) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSMutableCharacterSet *mutableBase16CharacterSet = [[NSMutableCharacterSet alloc] init];
-        [mutableBase16CharacterSet addCharactersInString:[[NSString alloc] initWithBytes:_base16Alphabet length:16 encoding:NSASCIIStringEncoding]];
+        [mutableBase16CharacterSet addCharactersInString:(NSString * _Nonnull)[[NSString alloc] initWithBytes:_base16Alphabet length:16 encoding:NSASCIIStringEncoding]];
         base16CharacterSet = mutableBase16CharacterSet;
     });
 
@@ -104,7 +100,7 @@ static NSData * TTTDataFromBase16EncodedString(NSString *string) {
 	return output;
 }
 
-static NSString * TTTBase32EncodedStringFromData(NSData *data) {
+static NSString * _Nullable TTTBase32EncodedStringFromData(NSData *data) {
     SecTransformRef transform = SecEncodeTransformCreate(kSecBase32Encoding, NULL);
     SecTransformSetAttribute(transform, kSecTransformInputAttributeName, (__bridge CFDataRef)data, NULL);
     NSData *encodedData = (__bridge_transfer NSData *)SecTransformExecute(transform, NULL);
@@ -122,7 +118,7 @@ static NSData * TTTDataFromBase32EncodedString(NSString *string) {
     return decodedData;
 }
 
-static NSString * TTTBase64EncodedStringFromData(NSData *data) {
+static NSString * _Nullable TTTBase64EncodedStringFromData(NSData *data) {
     SecTransformRef transform = SecEncodeTransformCreate(kSecBase64Encoding, NULL);
     SecTransformSetAttribute(transform, kSecTransformInputAttributeName, (__bridge CFDataRef)data, NULL);
     NSData *encodedData = (__bridge_transfer NSData *)SecTransformExecute(transform, NULL);
@@ -140,7 +136,7 @@ static NSData * TTTDataFromBase64EncodedString(NSString *string) {
     return decodedData;
 }
 
-static NSString * TTTBase85EncodedStringFromData(NSData *data) {
+static NSString * _Nullable TTTBase85EncodedStringFromData(NSData *data) {
     static uint8_t const _b85encode[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~";
 
     NSUInteger length = [data length];
@@ -205,7 +201,7 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
     for (NSUInteger i = 0; i < numberOfBlocks; i++) {
         uint32_t x = 0;
         for (NSUInteger j = 0; j < 5; j++) {
-            x = x * 85 + _b85decode[characters[(i * 5) + j]];
+            x = x * 85 + _b85decode[(unsigned char)characters[(i * 5) + j]];
         }
 
         x = CFSwapInt32HostToBig(x);
@@ -216,7 +212,7 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
     if (remainder > 0) {
         uint32_t x = 0;
         for (NSUInteger i = 0; i < remainder; i++) {
-            x = x * 85 + _b85decode[characters[(numberOfBlocks * 5) + i]];
+            x = x * 85 + _b85decode[(unsigned char)characters[(numberOfBlocks * 5) + i]];
         }
 
         x *= pow(85, 5 - remainder);
