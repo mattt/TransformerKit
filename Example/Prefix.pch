@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'TransformerKit Example' target in the 'TransformerKit Example' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif

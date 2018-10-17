@@ -21,66 +21,65 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-
-#import "TransformerKit.h"
+#import <TransformerKit/TransformerKit.h>
 
 int main(int __unused argc, const char __unused *argv[]) {
     @autoreleasepool {
         [@{
-            @"Capitalized String" : TTTCapitalizedStringTransformerName,
-            @"Uppercase String" : TTTUppercaseStringTransformerName,
-            @"Lowercase String" : TTTLowercaseStringTransformerName,
-            @"Camel Case String" : TTTCamelCaseStringTransformerName,
-            @"Llama Case String" : TTTLlamaCaseStringTransformerName,
-            @"Snake Case String" : TTTSnakeCaseStringTransformerName,
-            @"Train Case String" : TTTTrainCaseStringTransformerName,
-            @"Reversed String" : TTTReverseStringTransformerName,
-            @"Rémövê Dîaçritics" : TTTRemoveDiacriticStringTransformerName,
-            @"ट्रांस्लितेराते स्ट्रिंग" : TTTTransliterateStringToLatinTransformerName,
-            @{@"key" : @"value"} : TTTJSONTransformerName
-        } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id name, __unused BOOL *stop) {
-            NSLog(@"%@: %@", value, [[NSValueTransformer valueTransformerForName:name] transformedValue:value]);
-        }];
+           @"Capitalized String" : TTTCapitalizedStringTransformerName,
+           @"Uppercase String" : TTTUppercaseStringTransformerName,
+           @"Lowercase String" : TTTLowercaseStringTransformerName,
+           @"Camel Case String" : TTTCamelCaseStringTransformerName,
+           @"Llama Case String" : TTTLlamaCaseStringTransformerName,
+           @"Snake Case String" : TTTSnakeCaseStringTransformerName,
+           @"Train Case String" : TTTTrainCaseStringTransformerName,
+           @"Reversed String" : TTTReverseStringTransformerName,
+           @"Rémövê Dîaçritics" : TTTRemoveDiacriticStringTransformerName,
+           @"ट्रांस्लितेराते स्ट्रिंग" : TTTTransliterateStringToLatinTransformerName,
+           @{@"key" : @"value"} : TTTJSONTransformerName
+           } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id name, __unused BOOL *stop) {
+               NSLog(@"%@: %@", value, [[NSValueTransformer valueTransformerForName:name] transformedValue:value]);
+           }];
         
         [@{
            @"s\\v'ErStS": @"IPA-XSampa"
-        } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id transform, __unused BOOL *stop) {
-            NSLog(@"%@: %@", value, [TTTStringTransformerForICUTransform(transform) reverseTransformedValue:value]);
-        }];
+           } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id transform, __unused BOOL *stop) {
+               NSLog(@"%@: %@", value, [TTTStringTransformerForICUTransform(transform) reverseTransformedValue:value]);
+           }];
         
         [@{
-            @"CamelCaseString" : TTTCamelCaseStringTransformerName,
-            @"llamaCaseString" : TTTLlamaCaseStringTransformerName,
-            @"snake_case_string" : TTTSnakeCaseStringTransformerName,
-            @"train-case-string" : TTTTrainCaseStringTransformerName,
-            @"gnirtS desreveR" : TTTReverseStringTransformerName,
-        } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id name, __unused BOOL *stop) {
-            NSLog(@"%@ (Reversed): %@", value, [[NSValueTransformer valueTransformerForName:name] reverseTransformedValue:value]);
-        }];
-
+           @"CamelCaseString" : TTTCamelCaseStringTransformerName,
+           @"llamaCaseString" : TTTLlamaCaseStringTransformerName,
+           @"snake_case_string" : TTTSnakeCaseStringTransformerName,
+           @"train-case-string" : TTTTrainCaseStringTransformerName,
+           @"gnirtS desreveR" : TTTReverseStringTransformerName,
+           } enumerateKeysAndObjectsUsingBlock:^(__unused id value, __unused id name, __unused BOOL *stop) {
+               NSLog(@"%@ (Reversed): %@", value, [[NSValueTransformer valueTransformerForName:name] reverseTransformedValue:value]);
+           }];
+        
         [@[TTTISO8601DateTransformerName, TTTRFC2822DateTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
             NSLog(@"%@ (Timestamp): %@", name, [transformer transformedValue:[NSDate date]]);
             NSLog(@"%@ (Date): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:[NSDate date]]]);
         }];
 
-        [@[TTTMD5TransformerName, TTTSHA1TransformerName, TTTSHA256TransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
-            NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
-            NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
-        }];
-
-
+//        [@[TTTMD5TransformerName, TTTSHA1TransformerName, TTTSHA256TransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
+//            NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
+//            NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
+//        }];
+//
+        
         [@[TTTBase16EncodedDataTransformerName, TTTBase32EncodedDataTransformerName, TTTBase64EncodedDataTransformerName, TTTBase85EncodedDataTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
             NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
-
+            
             NSData *data = [name dataUsingEncoding:NSASCIIStringEncoding];
             if (![[transformer reverseTransformedValue:[transformer transformedValue:data]] isEqualToData:data]) {
                 NSLog(@"Not equal!");
             }
         }];
     }
-
+    
     return 0;
 }
 

@@ -29,4 +29,5 @@
     #import "TTTJSONTransformer.h"
     #import "TTTCryptographyTransformers.h"
     #import "TTTDataTransformers.h"
+    #import "NSValueTransformer+TransformerKit.h"
 #endif
