@@ -36,6 +36,8 @@
 		F8F886252176D30000BB644C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F886242176D30000BB644C /* Foundation.framework */; };
 		F8F886292176D30D00BB644C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F886282176D30D00BB644C /* Security.framework */; };
 		F8F8862B2176D31500BB644C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F8862A2176D31500BB644C /* Foundation.framework */; };
+		F8F8862E2176D74D00BB644C /* NSValueTransformerName.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F8862D2176D49800BB644C /* NSValueTransformerName.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8F8862F2176D75900BB644C /* NSValueTransformerName.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F8862D2176D49800BB644C /* NSValueTransformerName.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		F8F886262176D30400BB644C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		F8F886282176D30D00BB644C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F8F8862A2176D31500BB644C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F8F8862D2176D49800BB644C /* NSValueTransformerName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSValueTransformerName.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				BED5C6B91C8CF94E00530969 /* TransformerKit.h */,
+				F8F8862D2176D49800BB644C /* NSValueTransformerName.h */,
 				BED5C6B71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h */,
 				BED5C6B81C8CF94E00530969 /* NSValueTransformer+TransformerKit.m */,
 				BED5C6BA1C8CF94E00530969 /* TTTDataTransformers.h */,
@@ -155,11 +159,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */,
+				F8F8862F2176D75900BB644C /* NSValueTransformerName.h in Headers */,
 				BED5C6D21C8CF94E00530969 /* TTTStringTransformers.h in Headers */,
 				BED5C6CE1C8CF94E00530969 /* TTTImageTransformers.h in Headers */,
 				BED5C6C71C8CF94E00530969 /* NSValueTransformer+TransformerKit.h in Headers */,
 				BED5C6D01C8CF94E00530969 /* TTTJSONTransformer.h in Headers */,
-				BED5C6C91C8CF94E00530969 /* TransformerKit.h in Headers */,
 				BED5C6CC1C8CF94E00530969 /* TTTDateTransformers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,8 +173,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BED5C6E31C8CF9E000530969 /* NSValueTransformer+TransformerKit.h in Headers */,
 				BED5C6E41C8CF9E000530969 /* TransformerKit.h in Headers */,
+				F8F8862E2176D74D00BB644C /* NSValueTransformerName.h in Headers */,
+				BED5C6E31C8CF9E000530969 /* NSValueTransformer+TransformerKit.h in Headers */,
 				BED5C6E51C8CF9E000530969 /* TTTDataTransformers.h in Headers */,
 				BED5C6E61C8CF9E000530969 /* TTTDateTransformers.h in Headers */,
 				BED5C6E71C8CF9E000530969 /* TTTImageTransformers.h in Headers */,

@@ -21,26 +21,27 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "NSValueTransformerName.h"
 
-extern NSString * const TTTBase2EncodedDataTransformerName;
+extern NSValueTransformerName const TTTBase2EncodedDataTransformerName NS_SWIFT_NAME(base2EncodedDataTransformerName);
 
-extern NSString * const TTTBase16EncodedDataTransformerName;
+extern NSValueTransformerName const TTTBase16EncodedDataTransformerName NS_SWIFT_NAME(base16EncodedDataTransformerName);
 
-extern NSString * const TTTBase32EncodedDataTransformerName;
+extern NSValueTransformerName const TTTBase32EncodedDataTransformerName NS_SWIFT_NAME(base32EncodedDataTransformerName);
 
-extern NSString * const TTTBase64EncodedDataTransformerName;
+extern NSValueTransformerName const TTTBase64EncodedDataTransformerName NS_SWIFT_NAME(base64EncodedDataTransformerName);
 
-extern NSString * const TTTBase85EncodedDataTransformerName;
+extern NSValueTransformerName const TTTBase85EncodedDataTransformerName NS_SWIFT_NAME(base85EncodedDataTransformerName);
 
 ///
 
-extern NSString * const TTTBinaryStringEncodedDataTransformerName;
+extern NSValueTransformerName const TTTBinaryStringEncodedDataTransformerName NS_SWIFT_NAME(binaryStringEncodedDataTransformerName);
 
 
-extern NSString * const TTTHexadecimalStringEncodedDataTransformerName;
+extern NSValueTransformerName const TTTHexadecimalStringEncodedDataTransformerName NS_SWIFT_NAME(hexadecimalStringEncodedDataTransformerName);
 
 
-extern NSString * const TTTAscii85EncodedDataTransformerName;
+extern NSValueTransformerName const TTTAscii85EncodedDataTransformerName NS_SWIFT_NAME(ascii85EncodedDataTransformerName);
 
 
 @interface TTTDataTransformers : NSValueTransformer

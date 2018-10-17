@@ -1,4 +1,4 @@
-// TTTJSONTransformer.h
+// NSValueTransformerName.h
 //
 // Copyright (c) 2012 - 2018 Mattt (https://mat.tt)
 //
@@ -20,27 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "NSValueTransformerName.h"
+#include <AvailabilityMacros.h>
 
-/**
- 
- */
-extern NSValueTransformerName const TTTJSONTransformerName NS_SWIFT_NAME(jsonTransformerName);
+#ifndef NSValueTransformerName_h
+#define NSValueTransformerName_h
 
-/**
- 
- */
-@interface TTTJSONTransformer : NSValueTransformer
+#if !defined(MAC_OS_X_VERSION_10_10) || !defined(__IPHONE_10_0)
+typedef NSString *NSValueTransformerName;
+#endif
 
-/**
- 
- */
-@property (nonatomic, assign) NSJSONReadingOptions readingOptions;
-
-/**
- 
- */
-@property (nonatomic, assign) NSJSONWritingOptions writingOptions;
-
-@end
+#endif /* NSValueTransformerName_h */

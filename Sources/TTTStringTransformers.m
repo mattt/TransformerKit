@@ -24,16 +24,16 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
-NSString * const TTTCapitalizedStringTransformerName = @"TTTCapitalizedStringTransformerName";
-NSString * const TTTUppercaseStringTransformerName = @"TTTUppercaseStringTransformer";
-NSString * const TTTLowercaseStringTransformerName = @"TTTLowercaseStringTransformer";
-NSString * const TTTCamelCaseStringTransformerName = @"TTTCamelCaseStringTransformer";
-NSString * const TTTLlamaCaseStringTransformerName = @"TTTLlamaCaseStringTransformer";
-NSString * const TTTSnakeCaseStringTransformerName = @"TTTSnakeCaseStringTransformer";
-NSString * const TTTTrainCaseStringTransformerName = @"TTTTrainCaseStringTransformer";
-NSString * const TTTReverseStringTransformerName = @"TTTReverseStringTransformer";
-NSString * const TTTRemoveDiacriticStringTransformerName = @"TTTRemoveDiacriticStringTransformer";
-NSString * const TTTTransliterateStringToLatinTransformerName = @"TTTTransliterateStringToLatinTransformer";
+NSValueTransformerName const TTTCapitalizedStringTransformerName = @"TTTCapitalizedStringTransformerName";
+NSValueTransformerName const TTTUppercaseStringTransformerName = @"TTTUppercaseStringTransformer";
+NSValueTransformerName const TTTLowercaseStringTransformerName = @"TTTLowercaseStringTransformer";
+NSValueTransformerName const TTTCamelCaseStringTransformerName = @"TTTCamelCaseStringTransformer";
+NSValueTransformerName const TTTLlamaCaseStringTransformerName = @"TTTLlamaCaseStringTransformer";
+NSValueTransformerName const TTTSnakeCaseStringTransformerName = @"TTTSnakeCaseStringTransformer";
+NSValueTransformerName const TTTTrainCaseStringTransformerName = @"TTTTrainCaseStringTransformer";
+NSValueTransformerName const TTTReverseStringTransformerName = @"TTTReverseStringTransformer";
+NSValueTransformerName const TTTRemoveDiacriticStringTransformerName = @"TTTRemoveDiacriticStringTransformer";
+NSValueTransformerName const TTTTransliterateStringToLatinTransformerName = @"TTTTransliterateStringToLatinTransformer";
 
 static NSArray * TTTComponentsBySplittingOnWhitespaceWithString(NSString *string) {
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

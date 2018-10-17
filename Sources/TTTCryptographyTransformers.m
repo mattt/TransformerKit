@@ -20,24 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if __MAC_OS_X_VERSION_MIN_REQUIRED
 #import "TTTCryptographyTransformers.h"
 
 #import "NSValueTransformer+TransformerKit.h"
 
 #import <CommonCrypto/CommonCrypto.h>
 
-NSString * const TTTMD2TransformerName = @"TTTMD2Transformer";
-NSString * const TTTMD4TransformerName = @"TTTMD4Transformer";
-NSString * const TTTMD5TransformerName = @"TTTMD5Transformer";
+NSValueTransformerName TTTMD2TransformerName = @"TTTMD2Transformer";
+NSValueTransformerName TTTMD4TransformerName = @"TTTMD4Transformer";
+NSValueTransformerName TTTMD5TransformerName = @"TTTMD5Transformer";
 
-NSString * const TTTSHA1TransformerName = @"TTTSHA1Transformer";
-NSString * const TTTSHA224TransformerName = @"TTTSHA224Transformer";
-NSString * const TTTSHA256TransformerName = @"TTTSHA256Transformer";
-NSString * const TTTSHA384TransformerName = @"TTTSHA384Transformer";
-NSString * const TTTSHA512TransformerName = @"TTTSHA512Transformer";
+NSValueTransformerName TTTSHA1TransformerName = @"TTTSHA1Transformer";
+NSValueTransformerName TTTSHA224TransformerName = @"TTTSHA224Transformer";
+NSValueTransformerName TTTSHA256TransformerName = @"TTTSHA256Transformer";
+NSValueTransformerName TTTSHA384TransformerName = @"TTTSHA384Transformer";
+NSValueTransformerName TTTSHA512TransformerName = @"TTTSHA512Transformer";
 
-NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTDigestAlgorithm algorithm) {
+NSValueTransformerName TTTCryptographicHashTransformerNameWithAlgorithm(TTTDigestAlgorithm algorithm) {
     switch (algorithm) {
         case TTTMD2:
             return TTTMD2TransformerName;
@@ -182,4 +181,3 @@ __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(T
 }
 
 @end
-#endif

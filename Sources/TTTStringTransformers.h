@@ -21,61 +21,62 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "NSValueTransformerName.h"
 
 /**
  
  */
-extern NSString * const TTTCapitalizedStringTransformerName;
+extern NSValueTransformerName const TTTCapitalizedStringTransformerName NS_SWIFT_NAME(capitalizedStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTUppercaseStringTransformerName;
+extern NSValueTransformerName const TTTUppercaseStringTransformerName NS_SWIFT_NAME(uppercaseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTLowercaseStringTransformerName;
+extern NSValueTransformerName const TTTLowercaseStringTransformerName NS_SWIFT_NAME(lowercaseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTCamelCaseStringTransformerName;
+extern NSValueTransformerName const TTTCamelCaseStringTransformerName NS_SWIFT_NAME(camelCaseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTLlamaCaseStringTransformerName;
+extern NSValueTransformerName const TTTLlamaCaseStringTransformerName NS_SWIFT_NAME(llamaCaseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTSnakeCaseStringTransformerName;
+extern NSValueTransformerName const TTTSnakeCaseStringTransformerName NS_SWIFT_NAME(snakeCaseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTTrainCaseStringTransformerName;
+extern NSValueTransformerName const TTTTrainCaseStringTransformerName NS_SWIFT_NAME(trainCaseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTReverseStringTransformerName;
+extern NSValueTransformerName const TTTReverseStringTransformerName NS_SWIFT_NAME(reverseStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTRemoveDiacriticStringTransformerName;
+extern NSValueTransformerName const TTTRemoveDiacriticStringTransformerName NS_SWIFT_NAME(removeDiacriticStringTransformerName);
 
 /**
  
  */
-extern NSString * const TTTTransliterateStringToLatinTransformerName;
+extern NSValueTransformerName const TTTTransliterateStringToLatinTransformerName NS_SWIFT_NAME(transliterateStringToLatinTransformerName);
 
 /**
  
  */
-extern NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform);
+extern NSValueTransformer * TTTStringTransformerForICUTransform(NSString *transform) NS_SWIFT_NAME(StringTransformerForICUTransform(_:));
 
 @interface TTTStringTransformers : NSObject
 

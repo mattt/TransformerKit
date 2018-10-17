@@ -20,27 +20,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if __MAC_OS_X_VERSION_MIN_REQUIRED
 #import <Foundation/Foundation.h>
+#import "NSValueTransformerName.h"
 
 /**
 
  */
-extern NSString * const TTTMD5TransformerName;
+extern NSValueTransformerName TTTMD5TransformerName NS_SWIFT_NAME(md5TransformerName);
 
 /**
 
  */
-extern NSString * const TTTSHA1TransformerName;
+extern NSValueTransformerName TTTSHA1TransformerName NS_SWIFT_NAME(sha1TransformerName);
 
 /**
 
  */
-extern NSString * const TTTSHA256TransformerName;
+extern NSValueTransformerName TTTSHA256TransformerName NS_SWIFT_NAME(sha256TransformerName);
 
 #pragma mark -
 
-typedef NSUInteger TTTDigestAlgorithm;
+typedef NSUInteger TTTDigestAlgorithm NS_SWIFT_NAME(DigestAlgorithm);
 
 /**
 
@@ -49,7 +49,7 @@ typedef NS_ENUM(TTTDigestAlgorithm, TTTMessageDigestAlgorithm) {
     TTTMD2 = 2,
     TTTMD4 = 4,
     TTTMD5 = 5,
-};
+} NS_SWIFT_NAME(MessageDigestAlgorithm);
 
 /**
 
@@ -60,36 +60,36 @@ typedef NS_ENUM(TTTDigestAlgorithm, TTTSecureHashAlgorithm) {
     TTTSHA256 = 256,
     TTTSHA384 = 384,
     TTTSHA512 = 512,
-};
+} NS_SWIFT_NAME(SecureHashAlgorithm);
 
 ///
 
 /**
 
  */
-extern NSData * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string);
+extern NSData * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string) NS_SWIFT_NAME(digest(with:for:));
 
 /**
 
  */
-extern NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data);
+extern NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data) NS_SWIFT_NAME(digest(with:for:));
 
 /**
 
  */
-extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data);
+extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data) NS_SWIFT_NAME(hmac(with:for:and:));
 
 /**
 
  */
-extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data);
+extern __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data) NS_SWIFT_NAME(hmac(with:for:and:));
 
 #pragma mark -
 
 /**
 
  */
-extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDigestAlgorithm algorithm);
+extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDigestAlgorithm algorithm) NS_SWIFT_NAME(crypographicHashTransformer(with:));
 
 /**
 
@@ -108,7 +108,6 @@ extern NSString * TTTCryptographicHashTransformerNameWithAlgorithm(TTTMessageDig
 /**
 
  */
-+ (void)registerValueTransformerForDigestAlgorithm:(TTTDigestAlgorithm)algorithm;
++ (void)registerValueTransformerForDigestAlgorithm:(TTTDigestAlgorithm)algorithm NS_SWIFT_NAME(registerValueTransformer(for:));
 
 @end
-#endif

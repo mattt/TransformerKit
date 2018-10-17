@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "NSValueTransformerName.h"
 
 #if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
 
@@ -29,23 +30,23 @@
 /**
  
  */
-extern NSString * const TTTPNGRepresentationImageTransformerName;
+extern NSValueTransformerName const TTTPNGRepresentationImageTransformerName NS_SWIFT_NAME(pngRepresentationImageTransformerName);
 
 /**
  
  */
-extern NSString * const TTTJPEGRepresentationImageTransformerName;
+extern NSValueTransformerName const TTTJPEGRepresentationImageTransformerName NS_SWIFT_NAME(jpegRepresentationImageTransformerName);
 
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
 /**
  
  */
-extern NSString * const TTTGIFRepresentationImageTransformerName;
+extern NSValueTransformerName const TTTGIFRepresentationImageTransformerName NS_SWIFT_NAME(gifRepresentationImageTransformerName);
 
 /**
  
  */
-extern NSString * const TTTTIFFRepresentationImageTransformerName;
+extern NSValueTransformerName const TTTTIFFRepresentationImageTransformerName NS_SWIFT_NAME(tiffRepresentationImageTransformerName);
 #endif
 
 @interface TTTImageTransformers : NSObject

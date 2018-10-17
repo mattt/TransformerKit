@@ -26,12 +26,12 @@
 
 #if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
 
-NSString * const TTTPNGRepresentationImageTransformerName = @"TTTPNGRepresentationImageTransformer";
-NSString * const TTTJPEGRepresentationImageTransformerName = @"TTTJPEGRepresentationImageTransformer";
+NSValueTransformerName const TTTPNGRepresentationImageTransformerName = @"TTTPNGRepresentationImageTransformer";
+NSValueTransformerName const TTTJPEGRepresentationImageTransformerName = @"TTTJPEGRepresentationImageTransformer";
 
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
-NSString * const TTTGIFRepresentationImageTransformerName = @"TTTGIFRepresentationImageTransformer";
-NSString * const TTTTIFFRepresentationImageTransformerName = @"TTTTIFFRepresentationImageTransformer";
+NSValueTransformerName const TTTGIFRepresentationImageTransformerName = @"TTTGIFRepresentationImageTransformer";
+NSValueTransformerName const TTTTIFFRepresentationImageTransformerName = @"TTTTIFFRepresentationImageTransformer";
 #endif
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED

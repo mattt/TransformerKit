@@ -23,7 +23,7 @@
 #import "TTTJSONTransformer.h"
 #import "NSValueTransformer+TransformerKit.h"
 
-NSString * const TTTJSONTransformerName = @"TTTJSONTransformerName";
+NSValueTransformerName const TTTJSONTransformerName = @"TTTJSONTransformerName";
 
 @implementation TTTJSONTransformer
 

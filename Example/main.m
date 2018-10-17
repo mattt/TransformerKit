@@ -63,11 +63,10 @@ int main(int __unused argc, const char __unused *argv[]) {
             NSLog(@"%@ (Date): %@", name, [transformer reverseTransformedValue:[transformer transformedValue:[NSDate date]]]);
         }];
 
-//        [@[TTTMD5TransformerName, TTTSHA1TransformerName, TTTSHA256TransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
-//            NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
-//            NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
-//        }];
-//
+        [@[TTTMD5TransformerName, TTTSHA1TransformerName, TTTSHA256TransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
+            NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];
+            NSLog(@"%@: %@", name, [transformer transformedValue:[name dataUsingEncoding:NSASCIIStringEncoding]]);
+        }];
         
         [@[TTTBase16EncodedDataTransformerName, TTTBase32EncodedDataTransformerName, TTTBase64EncodedDataTransformerName, TTTBase85EncodedDataTransformerName] enumerateObjectsUsingBlock:^(id name, __unused NSUInteger idx, __unused BOOL *stop) {
             NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:name];

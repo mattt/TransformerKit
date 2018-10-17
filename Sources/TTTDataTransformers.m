@@ -26,15 +26,15 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
-NSString * const TTTBase2EncodedDataTransformerName = @"TTTBase2EncodedDataTransformer";
+NSValueTransformerName const TTTBase2EncodedDataTransformerName = @"TTTBase2EncodedDataTransformer";
 
-NSString * const TTTBase16EncodedDataTransformerName = @"TTTBase16EncodedDataTransformer";
+NSValueTransformerName const TTTBase16EncodedDataTransformerName = @"TTTBase16EncodedDataTransformer";
 
-NSString * const TTTBase32EncodedDataTransformerName = @"TTTBase32EncodedDataTransformer";
+NSValueTransformerName const TTTBase32EncodedDataTransformerName = @"TTTBase32EncodedDataTransformer";
 
-NSString * const TTTBase64EncodedDataTransformerName = @"TTTBase64EncodedDataTransformer";
+NSValueTransformerName const TTTBase64EncodedDataTransformerName = @"TTTBase64EncodedDataTransformer";
 
-NSString * const TTTBase85EncodedDataTransformerName = @"TTTBase85EncodedDataTransformer";
+NSValueTransformerName const TTTBase85EncodedDataTransformerName = @"TTTBase85EncodedDataTransformer";
 
 #define TTTBinaryStringEncodedDataTransformerName TTTBase2EncodedDataTransformerName
 #define TTTHexadecimalStringEncodedDataTransformerName TTTBase16EncodedDataTransformerName
@@ -259,6 +259,5 @@ static NSData * TTTDataFromBase85EncodedString(NSString *string) {
         }];
     }
 }
-
 
 @end

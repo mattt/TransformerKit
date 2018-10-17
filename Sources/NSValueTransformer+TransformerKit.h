@@ -26,11 +26,13 @@
 
 + (BOOL)registerValueTransformerWithName:(NSString *)name
                    transformedValueClass:(Class)transformedValueClass
-      returningTransformedValueWithBlock:(id (^)(id value))transformedValueBlock;
+      returningTransformedValueWithBlock:(id (^)(id value))transformedValueBlock
+NS_SWIFT_NAME(registerValueTransformer(named:producing:with:));
 
 + (BOOL)registerValueTransformerWithName:(NSString *)name
                    transformedValueClass:(Class)transformedValueClass
       returningTransformedValueWithBlock:(id (^)(id value))transformedValueBlock
-  allowingReverseTransformationWithBlock:(id (^)(id value))reverseTransformedValueBlock;
+  allowingReverseTransformationWithBlock:(id (^)(id value))reverseTransformedValueBlock
+NS_SWIFT_NAME(registerValueTransformer(named:producing:forward:reverse:));;
 
 @end

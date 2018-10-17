@@ -27,8 +27,8 @@
 #include <time.h>
 #include <xlocale.h>
 
-NSString * const TTTISO8601DateTransformerName = @"TTTISO8601DateTransformerName";
-NSString * const TTTRFC2822DateTransformerName = @"TTTRFC2822DateTransformerName";
+NSValueTransformerName const TTTISO8601DateTransformerName = @"TTTISO8601DateTransformerName";
+NSValueTransformerName const TTTRFC2822DateTransformerName = @"TTTRFC2822DateTransformerName";
 
 static NSString * TTTISO8601TimestampFromDate(NSDate *date) {
     static NSDateFormatter *_iso8601DateFormatter = nil;
