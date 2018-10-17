@@ -24,19 +24,19 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
-#import <CommonCrypto/CommonCrypto.h>
+@import CommonCrypto;
 
 NS_ASSUME_NONNULL_BEGIN
 
-NSValueTransformerName TTTMD2TransformerName = @"TTTMD2Transformer";
-NSValueTransformerName TTTMD4TransformerName = @"TTTMD4Transformer";
+static NSValueTransformerName TTTMD2TransformerName = @"TTTMD2Transformer";
+static NSValueTransformerName TTTMD4TransformerName = @"TTTMD4Transformer";
 NSValueTransformerName TTTMD5TransformerName = @"TTTMD5Transformer";
 
 NSValueTransformerName TTTSHA1TransformerName = @"TTTSHA1Transformer";
-NSValueTransformerName TTTSHA224TransformerName = @"TTTSHA224Transformer";
+static NSValueTransformerName TTTSHA224TransformerName = @"TTTSHA224Transformer";
 NSValueTransformerName TTTSHA256TransformerName = @"TTTSHA256Transformer";
-NSValueTransformerName TTTSHA384TransformerName = @"TTTSHA384Transformer";
-NSValueTransformerName TTTSHA512TransformerName = @"TTTSHA512Transformer";
+static NSValueTransformerName TTTSHA384TransformerName = @"TTTSHA384Transformer";
+static NSValueTransformerName TTTSHA512TransformerName = @"TTTSHA512Transformer";
 
 NSValueTransformerName TTTCryptographicHashTransformerNameWithAlgorithm(TTTDigestAlgorithm algorithm) {
     switch (algorithm) {
@@ -86,7 +86,7 @@ static inline __attribute__((const)) unsigned int TTTDigestLengthForAlgorithm(TT
 }
 
 NSData * TTTDigestWithAlgorithmForString(TTTDigestAlgorithm algorithm, NSString *string) {
-    return TTTDigestWithAlgorithmForData(algorithm, [string dataUsingEncoding:NSASCIIStringEncoding]);
+    return TTTDigestWithAlgorithmForData(algorithm, (NSData * _Nonnull)[string dataUsingEncoding:NSASCIIStringEncoding]);
 }
 
 NSData * TTTDigestWithAlgorithmForData(TTTDigestAlgorithm algorithm, NSData *data) {
@@ -150,7 +150,7 @@ static inline __attribute__((const)) CCHmacAlgorithm TTTHMACAlgorithmForDigestAl
 }
 
 __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSString *key, NSData *data) {
-    return TTTHMACWithDigestAlgorithmForKeyAndData(algorithm, [key dataUsingEncoding:NSASCIIStringEncoding], data);
+    return TTTHMACWithDigestAlgorithmForKeyAndData(algorithm, (NSData * _Nonnull)[key dataUsingEncoding:NSASCIIStringEncoding], data);
 }
 
 __attribute__((overloadable)) NSData * TTTHMACWithDigestAlgorithmForKeyAndData(TTTDigestAlgorithm algorithm, NSData *key, NSData *data) {
