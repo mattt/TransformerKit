@@ -28,9 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 NSValueTransformerName const TTTJSONTransformerName = @"TTTJSONTransformerName";
 
 @implementation TTTJSONTransformer
+@synthesize readingOptions;
+@synthesize writingOptions;
 
 + (void)load {
-    TTTJSONTransformer *transformer = [[self alloc] init];
+    TTTJSONTransformer *transformer = [[TTTJSONTransformer alloc] init];
     [self setValueTransformer:transformer forName:TTTJSONTransformerName];
 }
 
@@ -43,20 +45,28 @@ NSValueTransformerName const TTTJSONTransformerName = @"TTTJSONTransformerName";
 }
 
 - (nullable id)transformedValue:(nullable id)value {
+    if (!value) {
+        return nil;
+    }
+    
     NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:value options:self.writingOptions error:&error];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:(id _Nonnull)value options:self.writingOptions error:&error];
     
     return data;
 }
 
 - (nullable id)reverseTransformedValue:(nullable id)value {
+    if (!value) {
+        return nil;
+    }
+    
     id JSON = nil;
     NSError *error = nil;
-    if ([value isKindOfClass:[NSString class]]) {
+    if ([(id<NSObject>)value isKindOfClass:[NSString class]]) {
         JSON = [self reverseTransformedValue:[(NSString *)value dataUsingEncoding:NSUTF8StringEncoding]];
-    } else if ([value isKindOfClass:[NSData class]]) {
+    } else if ([(id<NSObject>)value isKindOfClass:[NSData class]]) {
         JSON = [NSJSONSerialization JSONObjectWithData:(NSData *)value options:self.readingOptions error:&error];
-    } else if ([value isKindOfClass:[NSInputStream class]]) {
+    } else if ([(id<NSObject>)value isKindOfClass:[NSInputStream class]]) {
         JSON = [NSJSONSerialization JSONObjectWithStream:(NSInputStream *)value options:self.readingOptions error:&error];
     }
     
