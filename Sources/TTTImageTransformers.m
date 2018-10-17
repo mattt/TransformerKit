@@ -24,6 +24,22 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+#import <UIKit/UIKit.h>
+#elif __MAC_OS_X_VERSION_MIN_REQUIRED
+#import <AppKit/AppKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapImageFileType type, NSDictionary *properties) {
+    NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0.0f, 0.0f, image.size.width, image.size.height)];
+    return [bitmap representationUsingType:type properties:properties];
+}
+
+NS_ASSUME_NONNULL_END
+
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 #if defined(UIKIT_EXTERN) || defined(_APPKITDEFINES_H)
@@ -34,17 +50,6 @@ NSValueTransformerName const TTTJPEGRepresentationImageTransformerName = @"TTTJP
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
 NSValueTransformerName const TTTGIFRepresentationImageTransformerName = @"TTTGIFRepresentationImageTransformer";
 NSValueTransformerName const TTTTIFFRepresentationImageTransformerName = @"TTTTIFFRepresentationImageTransformer";
-#endif
-
-#if __IPHONE_OS_VERSION_MIN_REQUIRED
-#import <UIKit/UIKit.h>
-#elif __MAC_OS_X_VERSION_MIN_REQUIRED
-#import <AppKit/AppKit.h>
-
-static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapImageFileType type, NSDictionary *properties) {
-    NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0.0f, 0.0f, image.size.width, image.size.height)];
-    return [bitmap representationUsingType:type properties:properties];
-}
 #endif
 
 @implementation TTTImageTransformers
@@ -82,7 +87,7 @@ static inline NSData * NSImageRepresentationWithType(NSImage *image, NSBitmapIma
             return [[imageClass alloc] initWithData:value scale:[[UIScreen mainScreen] scale]];
 #elif __MAC_OS_X_VERSION_MIN_REQUIRED
             return [[imageClass alloc] initWithData:value];
-#endif        
+#endif
         }];
 
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
