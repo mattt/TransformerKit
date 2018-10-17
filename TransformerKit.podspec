@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 
   s.subspec 'Cryptography' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'Sources/TTTCryptographyTransformers.{h,m}'
-    ss.frameworks = 'Security'
+    ss.osx.source_files = 'Sources/TTTCryptographyTransformers.{h,m}'
+    ss.osx.frameworks = 'Security'
   end
 
   s.subspec 'Data' do |ss|
     ss.dependency 'TransformerKit/Core'
-    ss.source_files = 'Sources/TTTDataTransformers.{h,m}'
-    ss.frameworks = 'Security'
+    ss.osx.source_files = 'Sources/TTTDataTransformers.{h,m}'
+    ss.osx.frameworks = 'Security'
   end
 
   s.subspec 'Date' do |ss|
