@@ -41,11 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
       returningTransformedValueWithBlock:(id (^)(id value))transformedValueBlock
   allowingReverseTransformationWithBlock:(nullable id (^)(id value))reverseTransformedValueBlock
 {
-    NSParameterAssert(name);
-    NSParameterAssert(transformedValueClass);
-    NSParameterAssert(transformedValueBlock);
-    
-    if (objc_lookUpClass([name UTF8String])) {
+    if (objc_lookUpClass((const char * _Nonnull)[name UTF8String])) {
         return NO;
     }
     
@@ -53,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
         return NO;
     }
     
-    Class class = objc_allocateClassPair([NSValueTransformer class], [name UTF8String], 0);
+    Class class = objc_allocateClassPair([NSValueTransformer class], (const char * _Nonnull)[name UTF8String], 0);
     if (!class) {
         return NO;
     }
@@ -99,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     objc_registerClassPair(class);
     
-    NSValueTransformer *valueTransformer = [[class alloc] init];
+    NSValueTransformer *valueTransformer = [(NSValueTransformer *)[class alloc] init];
     [self setValueTransformer:valueTransformer forName:name];
 
     return YES;
