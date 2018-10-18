@@ -56,13 +56,8 @@ that your apps will love and cherish:
 
 - PNG Representation\*
 - JPEG Representation\*
-
-### Data Transformers
-
-- Base16 String Encode / Decode
-- Base32 String Encode / Decode
-- Base64 String Encode / Decode
-- Base85 String Encode / Decode
+- GIF Representation _(macOS)_
+- TIFF Representation _(macOS)_
 
 ### Date Transformers
 
@@ -73,7 +68,15 @@ that your apps will love and cherish:
 
 - JSON Transformer\*
 
-### Cryptographic Transformers _(OS X)_
+### Data Transformers _(macOS)_
+
+- Base16 String Encode / Decode
+- Base32 String Encode / Decode
+- Base64 String Encode / Decode
+- Base85 String Encode / Decode
+
+
+### Cryptographic Transformers _(macOS)_
 
 - MD5, SHA-1, SHA-256, et al. Digests
 
