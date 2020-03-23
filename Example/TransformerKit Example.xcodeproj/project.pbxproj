@@ -104,7 +104,7 @@
 		F8E344D42176D16400264D73 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = Mattt;
 				TargetAttributes = {
 					F8E344DB2176D16400264D73 = {
@@ -118,6 +118,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = F8E344D32176D16400264D73;
 			productRefGroup = F8E344DD2176D16400264D73 /* Products */;
