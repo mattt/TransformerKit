@@ -66,7 +66,7 @@ NSValueTransformerName const TTTTIFFRepresentationImageTransformerName = @"TTTTI
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
             return UIImagePNGRepresentation(value);
 #elif __MAC_OS_X_VERSION_MIN_REQUIRED
-            return NSImageRepresentationWithType(value, NSPNGFileType, nil);
+            return NSImageRepresentationWithType(value, NSPNGFileType, @{});
 #endif
         } allowingReverseTransformationWithBlock:^id(id value) {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
@@ -92,13 +92,13 @@ NSValueTransformerName const TTTTIFFRepresentationImageTransformerName = @"TTTTI
 
 #if __MAC_OS_X_VERSION_MIN_REQUIRED
         [NSValueTransformer registerValueTransformerWithName:TTTGIFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
-            return NSImageRepresentationWithType(value, NSGIFFileType, nil);
+            return NSImageRepresentationWithType(value, NSGIFFileType, @{});
         } allowingReverseTransformationWithBlock:^id(id value) {
             return [[imageClass alloc] initWithData:value];
         }];
 
         [NSValueTransformer registerValueTransformerWithName:TTTTIFFRepresentationImageTransformerName transformedValueClass:imageClass returningTransformedValueWithBlock:^id(id value) {
-            return NSImageRepresentationWithType(value, NSTIFFFileType, nil);
+            return NSImageRepresentationWithType(value, NSTIFFFileType, @{});
         } allowingReverseTransformationWithBlock:^id(id value) {
             return [[imageClass alloc] initWithData:value];
         }];
