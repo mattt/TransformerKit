@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "NSValueTransformerName.h"
+#import <TransformerKit/NSValueTransformerName.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

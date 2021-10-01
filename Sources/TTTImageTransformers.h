@@ -26,7 +26,7 @@
 #elif __MAC_OS_X_VERSION_MIN_REQUIRED
 @import AppKit;
 #endif
-#import "NSValueTransformerName.h"
+#import <TransformerKit/NSValueTransformerName.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

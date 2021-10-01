@@ -20,8 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TTTJSONTransformer.h"
-#import "NSValueTransformer+TransformerKit.h"
+#import <TransformerKit/TTTJSONTransformer.h>
+#import <TransformerKit/NSValueTransformer+TransformerKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

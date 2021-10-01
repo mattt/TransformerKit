@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TTTDateTransformers.h"
+#import <TransformerKit/TTTDateTransformers.h>
 
-#import "NSValueTransformer+TransformerKit.h"
+#import <TransformerKit/NSValueTransformer+TransformerKit.h>
 
 @import Darwin.C.time;
 @import Darwin.C.xlocale;

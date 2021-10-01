@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TTTStringTransformers.h"
+#import <TransformerKit/TTTStringTransformers.h>
 
-#import "NSValueTransformer+TransformerKit.h"
+#import <TransformerKit/NSValueTransformer+TransformerKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

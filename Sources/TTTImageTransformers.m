@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TTTImageTransformers.h"
+#import <TransformerKit/TTTImageTransformers.h>
 
-#import "NSValueTransformer+TransformerKit.h"
+#import <TransformerKit/NSValueTransformer+TransformerKit.h>
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <UIKit/UIKit.h>
