@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "TTTCryptographyTransformers.h"
+#import <TransformerKit/TTTCryptographyTransformers.h>
 
-#import "NSValueTransformer+TransformerKit.h"
+#import <TransformerKit/NSValueTransformer+TransformerKit.h>
 
 @import CommonCrypto;
 

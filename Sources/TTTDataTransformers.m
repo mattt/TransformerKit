@@ -22,9 +22,9 @@
 
 @import Security;
 
-#import "TTTDataTransformers.h"
+#import <TransformerKit/TTTDataTransformers.h>
 
-#import "NSValueTransformer+TransformerKit.h"
+#import <TransformerKit/NSValueTransformer+TransformerKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

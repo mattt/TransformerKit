@@ -23,13 +23,14 @@
 #ifndef _TRANSFORMER_KIT_
     #define _TRANSFORMER_KIT_
 
-    #import "TTTDateTransformers.h"
-    #import "TTTImageTransformers.h"
-    #import "TTTStringTransformers.h"
-    #import "TTTJSONTransformer.h"
+    #import <TransformerKit/TTTDateTransformers.h>
+    #import <TransformerKit/TTTDateTransformers.h>
+    #import <TransformerKit/TTTImageTransformers.h>
+    #import <TransformerKit/TTTStringTransformers.h>
+    #import <TransformerKit/TTTJSONTransformer.h>
     #if __MAC_OS_X_VERSION_MIN_REQUIRED
-    #import "TTTDataTransformers.h"
-    #import "TTTCryptographyTransformers.h"
+    #import <TransformerKit/TTTDataTransformers.h>
+    #import <TransformerKit/TTTCryptographyTransformers.h>
     #endif
-    #import "NSValueTransformer+TransformerKit.h"
+    #import <TransformerKit/NSValueTransformer+TransformerKit.h>
 #endif
